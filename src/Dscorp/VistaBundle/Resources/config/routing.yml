@@ -1,0 +1,18 @@
+vista_homepage:
+    pattern:  /
+    defaults: { _controller: VistaBundle:Default:index }
+vista:
+    pattern:  /vista/
+    defaults: { _controller: VistaBundle:Default:vista }
+include_header:
+    pattern:  /include/header/
+    defaults: { _controller: VistaBundle:Include:header }
+include_sidebar:
+    pattern:  /include/sidebar/
+    defaults: { _controller: VistaBundle:Include:sidebar }
+include_footer:
+    pattern:  /include/footer/
+    defaults: { _controller: VistaBundle:Include:footer }
+include_prueba:
+    pattern:  /include/prueba/
+    defaults: { _controller: VistaBundle:Include:prueba }

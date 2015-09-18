@@ -1,0 +1,24 @@
+Dscorp\AdminBundle\Entity\Subtema:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        nombreSub:
+            type: string
+            length: 255
+    manyToOne:
+        tema:
+            targetEntity: Dscorp\AdminBundle\Entity\Tema
+            inversedBy: subtema
+            joinColumn:
+               name: id_tema
+               referencedColumnName: id
+    oneToOne:
+        contenido:
+            targetEntity: Dscorp\AdminBundle\Entity\Contenido
+            mappedBy: subtema
+    lifecycleCallbacks: {  }

@@ -1,0 +1,17 @@
+Dscorp\AdminBundle\Entity\Tema:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        nombreTema:
+            type: string
+            length: 255
+    oneToMany:
+        subtema:
+            targetEntity: Subtema
+            mappedBy: tema
+    lifecycleCallbacks: {  }

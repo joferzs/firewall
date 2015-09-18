@@ -1,0 +1,19 @@
+Dscorp\AdminBundle\Entity\Contenido:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        nombreContenido:
+            type: text
+    oneToOne:
+        subtema:
+            targetEntity: Dscorp\AdminBundle\Entity\Subtema
+            inversedBy: contenido
+            joinColumn:
+                name: id_subtema
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

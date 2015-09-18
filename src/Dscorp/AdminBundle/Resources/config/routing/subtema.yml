@@ -1,0 +1,30 @@
+subtema:
+    pattern:  /
+    defaults: { _controller: "DscorpAdminBundle:Subtema:index" }
+
+subtema_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "DscorpAdminBundle:Subtema:show" }
+
+subtema_new:
+    pattern:  /new
+    defaults: { _controller: "DscorpAdminBundle:Subtema:new" }
+
+subtema_create:
+    pattern:  /create
+    defaults: { _controller: "DscorpAdminBundle:Subtema:create" }
+    requirements: { _method: post }
+
+subtema_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "DscorpAdminBundle:Subtema:edit" }
+
+subtema_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "DscorpAdminBundle:Subtema:update" }
+    requirements: { _method: post }
+
+subtema_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "DscorpAdminBundle:Subtema:delete" }
+    requirements: { _method: post }

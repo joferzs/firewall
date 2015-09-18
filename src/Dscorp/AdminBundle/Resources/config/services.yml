@@ -1,0 +1,7 @@
+parameters:
+#    dscorp_admin.example.class: Dscorp\AdminBundle\Example
+
+services:
+#    dscorp_admin.example:
+#        class: %dscorp_admin.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
