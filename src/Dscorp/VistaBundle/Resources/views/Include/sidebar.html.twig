@@ -1,3 +1,12 @@
+{% extends '::basevista.html.twig' %} 
+{% block menu %}
+
+<aside id="nav-container" class="nav-container ng-scope nav-fixed nav-vertical bg-dark" data-ng-class="{ 'nav-fixed': admin.fixedSidebar,
+                                    'nav-horizontal': admin.menu === 'horizontal',
+                                    'nav-vertical': admin.menu === 'vertical',
+                                    'bg-white': ['31','32','33','34','35','36'].indexOf(admin.skin) >= 0,
+                                    'bg-dark': ['31','32','33','34','35','36'].indexOf(admin.skin) < 0
+                   }">
 <div class="nav-wrapper ng-scope">
     <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;"><ul id="nav" class="nav" data-slim-scroll="" data-collapse-nav="" data-highlight-active="" style="overflow: hidden; width: auto; height: 100%;">
         <li class="nav-title">
@@ -29,7 +38,14 @@
             {% if entitiesSubtema|length > 0 %}
             {% for entitySubtema in entitiesSubtema if entitySubtema.tema ==  entityTema.nombretema %}
             <ul>
-                <li><a href="#/ui/icons"><i class="ti-angle-right"></i><span data-translate="{{entitySubtema.nombresub}}" class="ng-scope">Icons</span> <span class="badge badge-info">4</span></a></li>
+                <li><a ng-click="ruta='{{entitySubtema.nombresub}}'" ng-init="ruta=0"><i class="ti-angle-right"></i><span data-translate="{{entitySubtema.nombresub}}" class="ng-scope">Icons</span> <span class="badge badge-info">4</span></a></li>
+                {% set var = '{{ruta}}' %}
+                {% verbatim %}
+                <span>
+                    ruta: {{ruta}} <br>
+                </span>
+                {% endverbatim %}
+                var: {{var}}
             </ul>
             {% endfor %}
             {% endif %}
@@ -103,3 +119,5 @@
         <i class="ti-angle-down icon-has-ul-h"></i><i class="ti-angle-right icon-has-ul"></i></li>
     </ul><div class="slimScrollBar" style="width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 698px; background: rgb(0, 0, 0);"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; opacity: 0.2; z-index: 90; right: 1px; background: rgb(51, 51, 51);"></div></div>
 </div>
+</aside>
+{% endblock %}

@@ -29,9 +29,22 @@ class IncludeController extends Controller
         return $this->render('VistaBundle:Include:footer.html.twig', array());
     }
 
-    public function pruebaAction()
+    public function contentAction($id)
     {
-        return $this->render('VistaBundle:Include:dashboard.html.twig', array());
-    }
+        $em = $this->getDoctrine()->getManager();
 
+        $entities = $em->getRepository('DscorpAdminBundle:Contenido')->findAll();
+
+        if (!$entities) {
+            throw $this->createNotFoundException('Unable to find contenido entity.');
+        }
+
+        echo "<br>id controladorr: ".$id;
+
+        return $this->render('VistaBundle:Include:content.html.twig',array(
+            'id'=>$id,
+            'entities'=>$entities        
+        ));   
+        
+    }
 }

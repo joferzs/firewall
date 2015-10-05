@@ -13,12 +13,42 @@ class DefaultController extends Controller
 
     public function vistaAction()
     {
-    	$em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager();
 
-    	$entities = $em->getRepository('DscorpAdminBundle:Contenido')->findAll();
+        $entitiesTema = $em->getRepository('DscorpAdminBundle:Tema')->findAll();
+        $entitiesSubtema = $em->getRepository('DscorpAdminBundle:Subtema')->findAll();
+        $entitiesContenido = $em->getRepository('DscorpAdminBundle:Contenido')->findAll();
+        $entitiesImagen = $em->getRepository('DscorpAdminBundle:Imagenes')->findAll();
+        $entitiesIdioma = $em->getRepository('DscorpAdminBundle:Idioma')->findAll();
+        $id='Español';
 
         return $this->render('VistaBundle:Vista:index.html.twig', array(
-        	'entities' => $entities,
+            'entitiesContenido' => $entitiesContenido,
+            'entitiesTema' => $entitiesTema,
+            'entitiesImagen' => $entitiesImagen,
+            'entitiesIdioma' => $entitiesIdioma,
+            'entitiesSubtema' => $entitiesSubtema,
+            'id' => $id
+        ));      
+    }
+
+    public function lenguajeAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entitiesTema = $em->getRepository('DscorpAdminBundle:Tema')->findAll();
+        $entitiesSubtema = $em->getRepository('DscorpAdminBundle:Subtema')->findAll();
+        $entitiesContenido = $em->getRepository('DscorpAdminBundle:Contenido')->findAll();
+        $entitiesImagen = $em->getRepository('DscorpAdminBundle:Imagenes')->findAll();
+        $entitiesIdioma = $em->getRepository('DscorpAdminBundle:Idioma')->findAll();
+
+        return $this->render('VistaBundle:Include:content.html.twig', array(
+            'entitiesContenido' => $entitiesContenido,
+            'entitiesTema' => $entitiesTema,
+            'entitiesImagen' => $entitiesImagen,
+            'entitiesIdioma' => $entitiesIdioma,
+            'entitiesSubtema' => $entitiesSubtema,
+            'id' => $id
         ));      
     }
 }

@@ -13,3 +13,9 @@ DscorpAdminBundle_subtema:
 DscorpAdminBundle_contenido:
         resource: "@DscorpAdminBundle/Resources/config/routing/contenido.yml"
         prefix:   /contenido
+DscorpAdminBundle_imagenes:
+        resource: "@DscorpAdminBundle/Resources/config/routing/imagenes.yml"
+        prefix:   /imagenes
+DscorpAdminBundle_idioma:
+        resource: "@DscorpAdminBundle/Resources/config/routing/idioma.yml"
+        prefix:   /idioma

@@ -83,4 +83,32 @@ class Subtema
     public function __toString(){
        return $this->nombreSub; 
     }
+    /**
+     * @var \Dscorp\AdminBundle\Entity\Contenido
+     */
+    private $contenido;
+
+
+    /**
+     * Set contenido
+     *
+     * @param \Dscorp\AdminBundle\Entity\Contenido $contenido
+     * @return Subtema
+     */
+    public function setContenido(\Dscorp\AdminBundle\Entity\Contenido $contenido = null)
+    {
+        $this->contenido = $contenido;
+    
+        return $this;
+    }
+
+    /**
+     * Get contenido
+     *
+     * @return \Dscorp\AdminBundle\Entity\Contenido 
+     */
+    public function getContenido()
+    {
+        return $this->contenido;
+    }
 }

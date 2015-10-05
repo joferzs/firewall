@@ -1,0 +1,55 @@
+<?php
+
+namespace Dscorp\AdminBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Idioma
+ */
+class Idioma
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var string
+     */
+    private $nombreIdioma;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nombreIdioma
+     *
+     * @param string $nombreIdioma
+     * @return Idioma
+     */
+    public function setNombreIdioma($nombreIdioma)
+    {
+        $this->nombreIdioma = $nombreIdioma;
+
+        return $this;
+    }
+
+    /**
+     * Get nombreIdioma
+     *
+     * @return string 
+     */
+    public function getNombreIdioma()
+    {
+        return $this->nombreIdioma;
+    }
+}

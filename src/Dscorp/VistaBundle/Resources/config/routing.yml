@@ -2,8 +2,11 @@ vista_homepage:
     pattern:  /
     defaults: { _controller: VistaBundle:Default:index }
 vista:
-    pattern:  /vista/
+    pattern:  /dscorp/
     defaults: { _controller: VistaBundle:Default:vista }
+lenguaje:
+    pattern:  /dscorp/{id}/
+    defaults: { _controller: VistaBundle:Default:lenguaje }
 include_header:
     pattern:  /include/header/
     defaults: { _controller: VistaBundle:Include:header }
@@ -13,6 +16,6 @@ include_sidebar:
 include_footer:
     pattern:  /include/footer/
     defaults: { _controller: VistaBundle:Include:footer }
-include_prueba:
-    pattern:  /include/prueba/
-    defaults: { _controller: VistaBundle:Include:prueba }
+include_content:
+    pattern:  /include/content/{id}
+    defaults: { _controller: VistaBundle:Include:content}

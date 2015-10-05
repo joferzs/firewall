@@ -1,0 +1,20 @@
+Dscorp\AdminBundle\Entity\Imagenes:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombreImagen:
+            type: string
+            length: 255
+        path:
+            type: string
+            length: 255
+        imagen:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

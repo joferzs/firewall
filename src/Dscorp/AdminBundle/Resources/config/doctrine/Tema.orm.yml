@@ -14,4 +14,11 @@ Dscorp\AdminBundle\Entity\Tema:
         subtema:
             targetEntity: Subtema
             mappedBy: tema
+    manyToOne:
+        idioma:
+            targetEntity: Dscorp\AdminBundle\Entity\Idioma
+            inversedBy: tema
+            joinColumn:
+               name: id_idioma
+               referencedColumnName: id
     lifecycleCallbacks: {  }

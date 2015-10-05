@@ -16,4 +16,11 @@ Dscorp\AdminBundle\Entity\Contenido:
             joinColumn:
                 name: id_subtema
                 referencedColumnName: id
+    manyToOne:
+        imagenes:
+            targetEntity: Dscorp\AdminBundle\Entity\Imagenes
+            inversedBy: contenido
+            joinColumn:
+               name: id_imagen
+               referencedColumnName: id
     lifecycleCallbacks: {  }

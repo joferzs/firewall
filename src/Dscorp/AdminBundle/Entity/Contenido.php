@@ -80,4 +80,32 @@ class Contenido
     {
         return $this->subtema;
     }
+    /**
+     * @var \Dscorp\AdminBundle\Entity\Imagenes
+     */
+    private $imagenes;
+
+
+    /**
+     * Set imagenes
+     *
+     * @param \Dscorp\AdminBundle\Entity\Imagenes $imagenes
+     * @return Contenido
+     */
+    public function setImagenes(\Dscorp\AdminBundle\Entity\Imagenes $imagenes = null)
+    {
+        $this->imagenes = $imagenes;
+
+        return $this;
+    }
+
+    /**
+     * Get imagenes
+     *
+     * @return \Dscorp\AdminBundle\Entity\Imagenes 
+     */
+    public function getImagenes()
+    {
+        return $this->imagenes;
+    }
 }

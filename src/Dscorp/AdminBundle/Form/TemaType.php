@@ -12,6 +12,7 @@ class TemaType extends AbstractType
     {
         $builder
             ->add('nombreTema')
+            ->add('idioma')
         ;
     }
 

@@ -101,4 +101,32 @@ class Tema
     public function __toString(){
         return $this->nombreTema;
     }
+    /**
+     * @var \Dscorp\AdminBundle\Entity\Idioma
+     */
+    private $idioma;
+
+
+    /**
+     * Set idioma
+     *
+     * @param \Dscorp\AdminBundle\Entity\Idioma $idioma
+     * @return Tema
+     */
+    public function setIdioma(\Dscorp\AdminBundle\Entity\Idioma $idioma = null)
+    {
+        $this->idioma = $idioma;
+
+        return $this;
+    }
+
+    /**
+     * Get idioma
+     *
+     * @return \Dscorp\AdminBundle\Entity\Idioma 
+     */
+    public function getIdioma()
+    {
+        return $this->idioma;
+    }
 }
