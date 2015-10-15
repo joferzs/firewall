@@ -1,523 +1,677 @@
 <!DOCTYPE html>
-<html class="no-js">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>{% block title %}Dscorp{% endblock %}</title>
-        <meta name="description" content="Responsive Admin Web App with Bootstrap and AngularJS">
-        <meta name="keywords" content="angularjs admin, admin templates, admin themes, bootstrap admin">
-        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-
-        <!-- Needs images, font... therefore can not be part of main.css -->        
-        <link rel="stylesheet" href="{{ asset('bundles/vista/fonts/themify-icons/themify-icons.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('bundles/vista/bower_components/font-awesome/css/font-awesome.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('bundles/vista/bower_components/weather-icons/css/weather-icons.min.css') }}">
+<html dir='ltr' lang='en-US' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+    <head>        
+        <title>Blaa bla</title>
+        <link type='text/css' rel='stylesheet' href='https://www.blogger.com/static/v1/widgets/859616579-widget_css_bundle.css' />
         <!-- end Needs images -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.js"></script>
+        <script src="{{ asset('bundles/vista/scripts/appng.js') }}"></script>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="{{ asset('bundles/vista/styles/styles.css') }}">
+        <link href='//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' rel='stylesheet'/>
         <link rel="stylesheet" href="{{ asset('bundles/vista/styles/main.css') }}">
     </head>
-    <body data-ng-app="app" id="app" class="app" data-custom-page data-off-canvas-nav data-ng-controller="AppCtrl" data-ng-class=" { 'layout-boxed': admin.layout === 'boxed', 
-                            'nav-collapsed-min': admin.menu === 'collapsed'
-          } ">
-        <!-- ngInclude: 'views/header.html' -->
-        <header id="header" class="header-container" data-ng-class="{ 'header-fixed': admin.fixedHeader,
-                                  'bg-white': ['11','12','13','14','15','16','21'].indexOf(admin.skin) >= 0,
-                                  'bg-dark': admin.skin === '31',
-                                  'bg-primary': ['22','32'].indexOf(admin.skin) >= 0,
-                                  'bg-success': ['23','33'].indexOf(admin.skin) >= 0,
-                                  'bg-info-alt': ['24','34'].indexOf(admin.skin) >= 0,
-                                  'bg-warning': ['25','35'].indexOf(admin.skin) >= 0,
-                                  'bg-danger': ['26','36'].indexOf(admin.skin) >= 0
-                 }">
-            <header class="top-header clearfix ng-scope">
-
+    <body ng-app="plunker" ng-controller="Ctrl1">
+        
+        <header class="top-header clearfix ng-scope">
                 <!-- Logo -->
-                <div class="logo bg-primary" ng-class="{ 'bg-dark': ['11','31'].indexOf(admin.skin) >= 0,
-                                 'bg-white': admin.skin === '21',
-                                 'bg-primary': ['12','22','32'].indexOf(admin.skin) >= 0,
-                                 'bg-success': ['13','23','33'].indexOf(admin.skin) >= 0,
-                                 'bg-info-alt': ['14','24','34'].indexOf(admin.skin) >= 0,
-                                 'bg-warning': ['15','25','35'].indexOf(admin.skin) >= 0,
-                                 'bg-danger': ['16','26','36'].indexOf(admin.skin) >= 0,
-                                }">
-                    <a href="#/">
-                        <span class="logo-text ng-binding">Dscorp</span>
-                    </a>
-                </div>
-
-                <!-- needs to be put after logo to make it work -->
-                <div class="menu-button" toggle-off-canvas="">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </div>
-
-                <div class="top-nav">
-                    <ul class="nav-left list-unstyled">
-                        <li>
-                            <a href="#/" data-toggle-nav-collapsed-min="" class="toggle-min"><i class="ti-menu"></i></a>
-                        </li>
-                        <li class="dropdown hidden-xs" dropdown="" is-open="status.isopenSettings">
-                            <a href="javascript:;" dropdown-toggle="" ng-disabled="disabled" aria-haspopup="true" aria-expanded="false"><i class="animate-spin ti-settings"></i></a>
-                            <div class="dropdown-menu with-arrow panel panel-default admin-options" ui-not-close-on-click="">
-                                <div class="panel-heading"><span data-translate="ADMIN_OPTIONS" class="ng-scope">Admin Options</span></div>
-                                <ul class="list-group">
-                                    <li class="list-group-item">
-                                        <p>Layouts Style</p>
-                                        <label class="ui-radio"><input name="layout" type="radio" value="boxed" ng-model="admin.layout" class="ng-pristine ng-valid"><span>Boxed</span></label>
-                                        <label class="ui-radio"><input name="layout" type="radio" value="wide" ng-model="admin.layout" class="ng-pristine ng-valid"><span>Wide</span></label>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <p>Menu Style</p>
-                                        <label class="ui-radio"><input name="menu" type="radio" value="vertical" ng-model="admin.menu" class="ng-pristine ng-valid"><span>Vertical</span></label>
-                                        <label class="ui-radio"><input name="menu" type="radio" value="horizontal" ng-model="admin.menu" class="ng-pristine ng-valid"><span>Horizontal</span></label>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <p>Additional</p>
-                                        <label class="ui-checkbox"><input name="checkbox1" type="checkbox" value="option1" ng-model="admin.fixedHeader" class="ng-pristine ng-valid"><span>Fixed Top Header</span></label>
-                                        <br>
-                                        <label class="ui-checkbox"><input name="checkbox1" type="checkbox" value="option1" ng-model="admin.fixedSidebar" class="ng-pristine ng-valid"><span>Fixed Sidebar Menu</span></label>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <p>
-                                            <span>Page Transition: </span> 
-                                            <span class="space"></span>
-                                            <select ng-model="admin.pageTransition" ng-options="ageTransitionOpt.name for ageTransitionOpt in pageTransitionOpts" class="ng-pristine ng-valid"><option value="0" selected="selected" label="Fade up">Fade up</option><option value="1" label="Scale up">Scale up</option><option value="2" label="Slide in from right">Slide in from right</option><option value="3" label="Flip Y">Flip Y</option></select>
-                                        </p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="dropdown hidden-xs" dropdown="" is-open="status.isopenPalette">
-                            <a href="javascript:;" dropdown-toggle="" ng-disabled="disabled" aria-haspopup="true" aria-expanded="false"><i class="animate-spin ti-palette"></i></a>
-                            <div class="dropdown-menu with-arrow panel panel-default skin-options" ui-not-close-on-click="">
-                                <div class="panel-heading"><span data-translate="COLOR_OPTIONS" class="ng-scope">Color Options</span></div>
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-xs-4">
-                                            <label class="skin-check">
-                                                <input type="radio" name="skin" value="11" ng-model="admin.skin" class="ng-pristine ng-valid">
-                                                <span class="skin-item bg-body">
-                                                    <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span>
-                                                    <span class="bg-dark item-header"></span>
-                                                    <span class="bg-white item-header"></span>
-                                                    <span class="bg-dark"></span>
-                                                </span>
-                                            </label>
-
-                                            <label class="skin-check">
-                                                <input type="radio" name="skin" value="12" ng-model="admin.skin" class="ng-pristine ng-valid">
-                                                <span class="skin-item bg-body">
-                                                    <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span>
-                                                    <span class="bg-primary item-header"></span>
-                                                    <span class="bg-white item-header"></span>
-                                                    <span class="bg-dark"></span> 
-                                                </span>
-                                            </label>
-                                            <label class="skin-check">
-                                                <input type="radio" name="skin" value="13" ng-model="admin.skin" class="ng-pristine ng-valid">
-                                                <span class="skin-item bg-body">
-                                                    <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span>
-                                                    <span class="bg-success item-header"></span>
-                                                    <span class="bg-white item-header"></span>
-                                                    <span class="bg-dark"></span> 
-                                                </span>
-                                            </label>
-                                            <label class="skin-check">
-                                                <input type="radio" name="skin" value="14" ng-model="admin.skin" class="ng-pristine ng-valid">
-                                                <span class="skin-item bg-body">
-                                                    <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span>
-                                                    <span class="bg-info-alt item-header"></span>
-                                                    <span class="bg-white item-header"></span>
-                                                    <span class="bg-dark"></span> 
-                                                </span>
-                                            </label>
-                                            <label class="skin-check">
-                                                <input type="radio" name="skin" value="15" ng-model="admin.skin" class="ng-pristine ng-valid">
-                                                <span class="skin-item bg-body">
-                                                    <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span>
-                                                    <span class="bg-warning item-header"></span>
-                                                    <span class="bg-white item-header"></span>
-                                                    <span class="bg-dark"></span> 
-                                                </span>
-                                            </label>
-                                            <label class="skin-check">
-                                                <input type="radio" name="skin" value="16" ng-model="admin.skin" class="ng-pristine ng-valid">
-                                                <span class="skin-item bg-body">
-                                                    <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span>
-                                                    <span class="bg-danger item-header"></span>
-                                                    <span class="bg-white item-header"></span>
-                                                    <span class="bg-dark"></span> 
-                                                </span>
-                                            </label>
-                                        </div>
-                                        <div class="col-xs-4">
-                                            <label class="skin-check">
-                                                <input type="radio" name="skin" value="21" ng-model="admin.skin" class="ng-pristine ng-valid">
-                                                <span class="skin-item bg-body">
-                                                    <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span>
-                                                    <span class="bg-white item-header"></span>
-                                                    <span class="bg-white item-header"></span>
-                                                    <span class="bg-dark"></span> 
-                                                </span>
-                                            </label>
-                                            <label class="skin-check">
-                                                <input type="radio" name="skin" value="22" ng-model="admin.skin" class="ng-pristine ng-valid">
-                                                <span class="skin-item bg-body">
-                                                    <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span>
-                                                    <span class="bg-primary item-header"></span>
-                                                    <span class="bg-primary item-header"></span>
-                                                    <span class="bg-dark"></span> 
-                                                </span>
-                                            </label>
-                                            <label class="skin-check">
-                                                <input type="radio" name="skin" value="23" ng-model="admin.skin" class="ng-pristine ng-valid">
-                                                <span class="skin-item bg-body">
-                                                    <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span>
-                                                    <span class="bg-success item-header"></span>
-                                                    <span class="bg-success item-header"></span>
-                                                    <span class="bg-dark"></span> 
-                                                </span>
-                                            </label>
-                                            <label class="skin-check">
-                                                <input type="radio" name="skin" value="24" ng-model="admin.skin" class="ng-pristine ng-valid">
-                                                <span class="skin-item bg-body">
-                                                    <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span>
-                                                    <span class="bg-info-alt item-header"></span>
-                                                    <span class="bg-info-alt item-header"></span>
-                                                    <span class="bg-dark"></span> 
-                                                </span>
-                                            </label>
-                                            <label class="skin-check">
-                                                <input type="radio" name="skin" value="25" ng-model="admin.skin" class="ng-pristine ng-valid">
-                                                <span class="skin-item bg-body">
-                                                    <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span>
-                                                    <span class="bg-warning item-header"></span>
-                                                    <span class="bg-warning item-header"></span>
-                                                    <span class="bg-dark"></span> 
-                                                </span>
-                                            </label>
-                                            <label class="skin-check">
-                                                <input type="radio" name="skin" value="26" ng-model="admin.skin" class="ng-pristine ng-valid">
-                                                <span class="skin-item bg-body">
-                                                    <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span>
-                                                    <span class="bg-danger item-header"></span>
-                                                    <span class="bg-danger item-header"></span>
-                                                    <span class="bg-dark"></span> 
-                                                </span>
-                                            </label>                               
-                                        </div>
-                                        <div class="col-xs-4">
-                                            <label class="skin-check">
-                                                <input type="radio" name="skin" value="31" ng-model="admin.skin" class="ng-pristine ng-valid">
-                                                <span class="skin-item bg-body">
-                                                    <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span>
-                                                    <span class="bg-dark item-header"></span>
-                                                    <span class="bg-dark item-header"></span>
-                                                    <span class="bg-white"></span> 
-                                                </span>
-                                            </label> 
-                                            <label class="skin-check">
-                                                <input type="radio" name="skin" value="32" ng-model="admin.skin" class="ng-pristine ng-valid">
-                                                <span class="skin-item bg-body">
-                                                    <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span>
-                                                    <span class="bg-primary item-header"></span>
-                                                    <span class="bg-primary item-header"></span>
-                                                    <span class="bg-white"></span> 
-                                                </span>
-                                            </label>
-                                            <label class="skin-check">
-                                                <input type="radio" name="skin" value="33" ng-model="admin.skin" class="ng-pristine ng-valid">
-                                                <span class="skin-item bg-body">
-                                                    <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span>
-                                                    <span class="bg-success item-header"></span>
-                                                    <span class="bg-success item-header"></span>
-                                                    <span class="bg-white"></span> 
-                                                </span>
-                                            </label>
-                                            <label class="skin-check">
-                                                <input type="radio" name="skin" value="34" ng-model="admin.skin" class="ng-pristine ng-valid">
-                                                <span class="skin-item bg-body">
-                                                    <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span>
-                                                    <span class="bg-info-alt item-header"></span>
-                                                    <span class="bg-info-alt item-header"></span>
-                                                    <span class="bg-white"></span> 
-                                                </span>
-                                            </label>
-                                            <label class="skin-check">
-                                                <input type="radio" name="skin" value="35" ng-model="admin.skin" class="ng-pristine ng-valid">
-                                                <span class="skin-item bg-body">
-                                                    <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span>
-                                                    <span class="bg-warning item-header"></span>
-                                                    <span class="bg-warning item-header"></span>
-                                                    <span class="bg-white"></span> 
-                                                </span>
-                                            </label>
-                                            <label class="skin-check">
-                                                <input type="radio" name="skin" value="36" ng-model="admin.skin" class="ng-pristine ng-valid">
-                                                <span class="skin-item bg-body">
-                                                    <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span>
-                                                    <span class="bg-danger item-header"></span>
-                                                    <span class="bg-danger item-header"></span>
-                                                    <span class="bg-white"></span> 
-                                                </span>
-                                            </label>                               
+                <div id='pagenbt'>
+                    <a class='skip-link screen-reader-text' href='#contentnbt'>Skip to content</a>
+                    <div class='social-navigation clearfix'>
+                        <div class='container'>
+                            <ul class='menu clearfix nav-right pull-right list-unstyled' id='menu-social'>
+                                <li><a href='http://twitter.com'><span class='screen-reader-text'>Twitter</span></a></li>
+                                <li><a href='http://facebook.com'><span class='screen-reader-text'>Facebook</span></a></li>
+                                <li><a href='http://plus.google.com' rel='nofollow' target='_blank'><span class='screen-reader-text'>Google Plus</span></a></li>
+                                <li><a href='http://dribbble.com' rel='nofollow' target='_blank'><span class='screen-reader-text'>Dribbble</span></a></li>
+                                <li><a href='http://vimeo.com' rel='nofollow' target='_blank'><span class='screen-reader-text'>Vimeo</span></a></li>
+                                <li><a href='http://linkedin.com' rel='nofollow' target='_blank'><span class='screen-reader-text'>Linkedin</span></a></li>
+                                <li><a href='http://youtube.com' rel='nofollow' target='_blank'><span class='screen-reader-text'>Youtube</span></a></li>
+                                <li><a href='http://instagram.com' rel='nofollow' target='_blank'><span class='screen-reader-text'>Instagram</span></a></li>
+                                <li><a href='http://flickr.com' rel='nofollow' target='_blank'><span class='screen-reader-text'>Flickr</span></a></li>
+                                <li><a href='http://tumblr.com' rel='nofollow' target='_blank'><span class='screen-reader-text'>tumblr</span></a></li>
+                                <li><a href='http://www.foursquare.com' rel='nofollow' target='_blank'><span class='screen-reader-text'>foursquare</span></a></li>
+                                <li><a href='http://pinterest.com' rel='nofollow' target='_blank'><span class='screen-reader-text'>Pinterest</span></a></li>                                
+                                <li class="dropdown langs text-normal ng-scope" dropdown="">
+                                    <a href="" dropdown-toggle="" ng-disabled="disabled" aria-haspopup="true" aria-expanded="false">
+                                        <div >Idioma</div>
+                                    </a>
+                                    <ul class="dropdown-menu with-arrow  pull-right list-langs" role="menu">
+                                        {% if entitiesIdioma|length > 0 %}
+                                            {% for entityIdioma in entitiesIdioma %}
+                                                {% set var = entityIdioma.nombreIdioma %}
+                                                <li >
+                                                    <a href="{{ path('lenguaje', { 'id': var }) }}">{{ entityIdioma.nombreIdioma }}</a>
+                                                </li>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <header class='site-headernbt' id='mastheadnbt' role='banner'>
+                        <div class='container'>
+                            <div class='site-brandingnbt'>
+                                <div class='headersec section' id='headersec'>
+                                    <div class='widget Header' id='Header1'>
+                                        <div id='header-inner'>
+                                            <div class='titlewrapper'>
+                                                <h1 class='site-titlenbt'>
+                                                    <a href='http://solon-nbt.blogspot.mx/'>Tetuloaqui</a>
+                                                </h1>
+                                            </div>
+                                            <h2 class='site-descriptionnbt'>Solon Blogger Template is Free Theme by NewBloggerThemes.com</h2>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </li>
-                        <li class="search-box visible-md visible-lg">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="ti-search"></i></span>
-                                <input type="text" class="form-control" placeholder="Search">
-                            </div>
-                        </li>
-                        <li class="dropdown" dropdown="" is-open="status.isopenEmail">
-                            <a href="javascript:;" dropdown-toggle="" ng-disabled="disabled" aria-haspopup="true" aria-expanded="false">
-                                <i class="ti-email"></i>
-                                <span class="badge badge-danger">3</span>
-                            </a>
-                            <div class="dropdown-menu with-arrow panel panel-default">
-                                <div class="panel-heading">
-                                    You have 3 mails.
-                                </div>
-                                <ul class="list-group">
-                                    <li class="list-group-item">
-                                        <a href="javascript:;" class="media">
-                                            <span class="media-left media-icon">
-                                                <span class="btn-icon btn-icon-round btn-warning"><i class="ti-email"></i></span>
-                                            </span>
-                                            <div class="media-body">
-                                                <span class="block">Lisa sent you a mail</span>
-                                                <span class="text-muted block">2min ago</span>
-                                            </div>
-                                        </a>
+                        </div>
+                    </header><!-- #masthead -->
+                    <div class='main-navigationnbt' id='site-navigationnbt' role='navigation'>
+                        <div class='container'>
+                            <div class='menu-testing-menu-container'>
+                                <ul class='menunbt'>
+                                    <li><a href='' ng-click="$root.r='a'" ng-init="$root.r='a'">Homiess</a></li>
+                                    {% for entityTema in entitiesTema if entityTema.idioma ==  id %}    
+                                        <li> 
+                                            <a href="">{{entityTema.nombretema}}</a>
+                                            <ul>
+                                            {% for entitySubtema in entitiesSubtema if entitySubtema.tema ==  entityTema.nombretema %}                            
+                                                <li><a href="" ng-click="$root.r='{{entitySubtema.nombresub}}'">{{entitySubtema.nombresub}}</a></li>
+                                            {% endfor %}                            
+                                            </ul>
+                                        </li>
+                                    {% endfor %}
+                                    <li><a href='#'>Downloads</a>
+                                        <ul class='sub-menu'>
+                                            <li><a href='#'>Dvd</a></li>
+                                            <li><a href='#'>Games</a></li>
+                                            <li><a href='#'>Software</a>
+                                                <ul class='sub-menu'>
+                                                    <li><a href='#'>Office</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
                                     </li>
-                                    <li class="list-group-item">
-                                        <a href="javascript:;" class="media">
-                                            <span class="media-left media-icon">
-                                                <span class="btn-icon btn-icon-round btn-info"><i class="ti-email"></i></span>
-                                            </span>
-                                            <div class="media-body">
-                                                <span class="block">Jane sent you a mail</span>
-                                                <span class="text-muted">3 hours ago</span>
-                                            </div>
-                                        </a>
+                                    <li class="search-box visible-md visible-lg" style="width: 160px;">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="ti-search"></i></span>
+                                            <input type="text" class="form-control" placeholder="Search">
+                                        </div>
                                     </li>
-                                    <li class="list-group-item">
-                                        <a href="javascript:;" class="media">
-                                            <span class="media-left media-icon">
-                                                <span class="btn-icon btn-icon-round btn-success"><i class="ti-email"></i></span>
-                                            </span>
-                                            <div class="media-body">
-                                                <span class="block">Lynda sent you a mail</span>
-                                                <span class="text-muted">9 hours ago</span>
-                                            </div>
-                                        </a>
-                                    </li>                       
                                 </ul>
-                                <div class="panel-footer">
-                                    <a href="#/mail/inbox">Show all mails.</a>
-                                </div>
                             </div>
-                        </li>
-                        <li class="dropdown" dropdown="" is-open="status.isopenBell">
-                            <a href="javascript:;" dropdown-toggle="" ng-disabled="disabled" aria-haspopup="true" aria-expanded="false">
-                                <i class="ti-bell"></i>
-                                <span class="badge badge-info">3</span>
-                            </a>
-                            <div class="dropdown-menu with-arrow panel panel-default">
-                                <div class="panel-heading">
-                                    You have 3 notifications.
-                                </div>
-                                <ul class="list-group">
-                                    <li class="list-group-item">
-                                        <a href="javascript:;" class="media">
-                                            <span class="media-left media-icon">
-                                                <span class="btn-icon btn-icon-round btn-success"><i class="ti-bell"></i></span>
-                                            </span>
-                                            <div class="media-body">
-                                                <span class="block">New tasks needs to be done</span>
-                                                <span class="text-muted block">2min ago</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="javascript:;" class="media">
-                                            <span class="media-left media-icon">
-                                                <span class="btn-icon btn-icon-round btn-info"><i class="ti-bell"></i></span>
-                                            </span>
-                                            <div class="media-body">
-                                                <span class="block">Change your password</span>
-                                                <span class="text-muted">3 hours ago</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="javascript:;" class="media">
-                                            <span class="media-left media-icon">
-                                                <span class="btn-icon btn-icon-round btn-danger"><i class="ti-bell"></i></span>
-                                            </span>
-                                            <div class="media-body">
-                                                <span class="block">New feature added</span>
-                                                <span class="text-muted">9 hours ago</span>
-                                            </div>
-                                        </a>
-                                    </li>                       
-                                </ul>
-                                <div class="panel-footer">
-                                    <a href="#/mail/inbox">Show all notifications.</a>
-                                </div>
-                            </div>
-                        </li>
-                    </ul> 
-
-                    <ul class="nav-right pull-right list-unstyled">
-                        <li class="dropdown text-normal nav-profile" dropdown="" is-open="status.isopenProfile">
-                            <a href="javascript:;" dropdown-toggle="" ng-disabled="disabled" aria-haspopup="true" aria-expanded="false">
-                                <img src="images/g1.jpg" alt="" class="img-circle img30_30">
-                                <span class="hidden-xs">
-                                    <span data-translate="LISA" class="ng-scope">Lisa</span>
-                                </span>
-                            </a>
-                            <ul class="dropdown-menu with-arrow pull-right">
-                                <li>
-                                    <a href="#/pages/profile">
-                                        <i class="ti-user"></i>
-                                        <span data-translate="MY_PROFILE" class="ng-scope">My Profile</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#/app/tasks">
-                                        <i class="ti-check-box"></i>
-                                        <span data-translate="MY_TASKS" class="ng-scope">My Tasks</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#/pages/lock-screen">
-                                        <i class="ti-lock"></i>
-                                        <span data-translate="LOCK" class="ng-scope">Lock</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#/pages/signin">
-                                        <i class="ti-export"></i>
-                                        <span data-translate="LOG_OUT" class="ng-scope">Logout</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dropdown langs text-normal ng-scope" dropdown="">
-                            <a href="" dropdown-toggle="" ng-disabled="disabled" aria-haspopup="true" aria-expanded="false">
-                                <div >Idioma</div>
-                            </a>
-                            <ul class="dropdown-menu with-arrow  pull-right list-langs" role="menu">
-
-                                {% if entitiesIdioma|length > 0 %}
-                                {% for entityIdioma in entitiesIdioma %}
-
-                                {% set var = entityIdioma.nombreIdioma %}
-
-                                <li >
-                                    <a href="{{ path('lenguaje', { 'id': var }) }}">{{ entityIdioma.nombreIdioma }}</a>
-                                </li>
-
-                                {% endfor %}
-                                {% endif %}
-
-                            </ul>
-                        </li>
-                    </ul>
+                        </div>
+                    </div><!-- #site-navigation -->
                 </div>
-            </header>
         </header>
 
-        <div class="main-container" data-ng-class="{ 'app-nav-horizontal': admin.menu === 'horizontal' }">
-            <!-- ngInclude: 'views/sidebar.html' -->
-             
-             <aside id="nav-container" class="nav-container ng-scope nav-fixed nav-vertical bg-dark" data-ng-class="{ 'nav-fixed': admin.fixedSidebar,
-                                    'nav-horizontal': admin.menu === 'horizontal',
-                                    'nav-vertical': admin.menu === 'vertical',
-                                    'bg-white': ['31','32','33','34','35','36'].indexOf(admin.skin) >= 0,
-                                    'bg-dark': ['31','32','33','34','35','36'].indexOf(admin.skin) < 0
-                   }"> 
-                <div class="nav-wrapper ng-scope" ng-init="i='Portugues'"> 
-                    <div class="slimScrollDiv" style="position: auto; overflow: hidden; width: auto; height: 100%;">
-                        <ul id="nav" class="nav" data-slim-scroll="" data-collapse-nav="" data-highlight-active="" style="overflow: hidden; width: auto; height: 100%;">
-                            <li class="nav-title">
-                                <span data-translate="NAVIGATION" class="ng-scope">Navigation</span>
-                            </li>
-                            <li class="active"><a href="#"> <i class="ti-home"></i><span data-translate="DASHBOARD" class="ng-scope">Dashboard</span> </a></li>
-                            {% for entityTema in entitiesTema if entityTema.idioma ==  id %}    
-                                <li> 
-                                    <a href="#/ul"><i class="ti-bag"></i><span data-translate="{{entityTema.nombretema}}">Cargando...</span></a>
-                                    <ul>
-                                    {% for entitySubtema in entitiesSubtema if entitySubtema.tema ==  entityTema.nombretema %}                            
-                                        <li><a href="" ng-click="r='{{entitySubtema.nombresub}}'"><i class="ti-angle-right"></i><span data-translate="{{entitySubtema.nombresub}}">Icons</span> <span class="badge badge-info">4</span></a></li>
-                                    {% endfor %}                            
-                                    </ul>
-                                    <i class="ti-angle-down icon-has-ul-h"></i><i class="ti-angle-right icon-has-ul"></i>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                        <div class="slimScrollBar" style="width: 7px; position: absolute; top: 108px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px; height: 276.653px; background: rgb(0, 0, 0);"></div>
-                        <div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; opacity: 0.2; z-index: 90; right: 1px; background: rgb(51, 51, 51);"></div>
-                    </div>
-                </div>
-            </aside>
+        que pasa tronco<br>!!!<br>
+        
+            <!--Main, content and sidebar-->
 
-            <div id="content" class="content-container">
-                <!-- ngView:  -->
-                    {% for entityContenido in entitiesContenido %}
-                        <div ng-if=" r == '{{ entityContenido.subtema}}' ">
-                            <br>
-                            <img src="{{asset('bundles/dscorpadmin/imagenes/'~ entityContenido.imagenes)}}" alt="{{ entityContenido.subtema }}" />
-                            <br>
-                            {{ entityContenido.subtema}}
-                            <br>
-                            {{ entityContenido.nombreContenido }}
-                            <br>                        
-                            {{ entityContenido.id }}
-                            <br>
+        <div class='site-contentnbt container' id='contentnbt'>
+
+            <!--Main primary-->
+
+            <div ng-if=" $root.r == 'a' ">
+
+                <div class='content-areanbt' id='primarynbt'>
+                    <div class='site-mainnbt' id='mainnbt' role='main'>
+                        <!-- featured post slider started -->
+                        <div>
+                            <ul class='slides'>
+                                <!-- slide 1 code start -->
+                                {% verbatim %}
+                                <div ng-controller="CarouselDemoCtrl">
+                                  <div style="height: 350px; width: auto;">
+                                    <carousel interval="myInterval">
+                                      <slide ng-repeat="slide in slides" active="slide.active">
+                                        <img ng-src="{{slide.image}}" style="margin:auto; width:auto; height:300px; ">
+                                        <div class="carousel-caption">
+                                          <h4>Slide {{$index}}</h4>
+                                          <p>{{slide.text}}</p>
+                                        </div>
+                                      </slide>
+                                    </carousel>
+                                  </div>
+                                </div>
+                                {% endverbatim %}
+                                <!-- slide code end -->
+                            </ul>
                         </div>
-                    {% endfor %}
-                    <div ng-if=" r == 'a' ">
-                        <h3>Hola</h3>
-                        <h4>Aqui va el contenido</h4>
-                    </div>
+                        <!-- featured post slider end -->
+                        <div class='mainblogsec section' id='mainblogsec'>
+                            <div class='widget Blog' id='Blog1'>
+                                <div class='blog-posts hfeed'>
 
-                    {% block content %}
-                    sin id
-                    {% endblock %}
+                                    {% set fa,fe,fi,fo =  random(8),random(8),random(8),random(8)  %}
+                                    {% for entityContenido in entitiesContenido if entityContenido.id == fa or entityContenido.id == fe or entityContenido.id == fi or entityContenido.id == fo %}
+                                    <div class="date-outer">                
+                                        <h2 class='date-header'><span>Wednesday, April 23, 2014</span></h2>
+                                        <div class="date-posts">
+                                            <div class='post-outer'>
+                                                <article class='post hentry'>
+                                                    <a name='2807265723650202876'></a>
+                                                    <header class='entry-header'>
+                                                        <h1 class='post-title entry-title'>
+                                                        <a href='#'>{{ entityContenido.subtema}}</a>
+                                                        </h1>
+                                                        <div class='entry-metanbt'>
+                                                            <span class='posted-onnbt'><i class='fa fa-calendar'></i>Temas</span>
+                                                        </div>
+                                                    </header>
+                                                    <div class='post-header-line-1'>                                                        
+                                                    </div>
+                                                    <div class='post-body entry-content'>
+                                                        <div class="separator" style="clear: both; text-align: center;">
+                                                            <a href="#" imageanchor="5" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;">
+                                                                <img src="{{asset('bundles/dscorpadmin/imagenes/'~ entityContenido.imagenes)}}" alt="{{ entityContenido.subtema }}" height="100" width="200"/>
+                                                                <!--<img border="0" src="http://1.bp.blogspot.com/-v8zWdibSlLg/U5J9pHU13zI/AAAAAAAAKEw/WkX-S4BehRw/s1600/postimg-1.jpg" height="240" width="320" />-->
+                                                            </a>
+                                                        </div>{{ entityContenido.nombreContenido |slice(0, 500)}}...<br>
+                                                        <div style='clear: both;'>                                                        
+                                                        </div>
+                                                        <div class='pbtsharethisbutt'>
+                                                            <ul class='pbt-social-icons' id='social-post-un'>
+                                                                <li class='Share-this-arti'>Share This:&nbsp;&nbsp;</li>
+                                                                <li class='pbtfacebook'><a href='http://www.facebook.com' onclick='window.open(this.href,"sharer","toolbar=0,status=0,width=626,height=436"); return false;' rel='nofollow' target='_blank' title='Share this on Facebook'><i class='fa fa-facebook-square'></i>&nbsp;Facebook</a></li><li class='pbttwitter'><a href='http://twitter.com' rel='nofollow' target='_blank' title='Tweet This!'><i class='fa fa-twitter-square'></i>&nbsp;Twitter</a></li><li class='pbtgoogle'><a href='https://plus.google.com' onclick='javascript:window.open(this.href,   "", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600");return false;' rel='nofollow' target='_blank' title='Share this on Google+'><i class='fa fa-google-plus-square'></i>&nbsp;Google+</a></li><li class='pbtstumbleupon'><a href='http://www.stumbleupon.com' rel='nofollow' target='_blank' title='Stumble upon something good? Share it on StumbleUpon'><i class='fa fa-stumbleupon-circle'></i>&nbsp;Stumble</a></li><li class='pbtdigg'><a href='http://digg.com' rel='nofollow' target='_blank' title='Digg this!'><i class='fa fa-digg'></i>&nbsp;Digg</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <span class='read-morenbt'>
+                                                            <span class='read-more-iconnbt'>
+                                                                <a href="#" ng-click="$root.r='{{ entityContenido.subtema}}'"><i class='fa fa-plus'></i></a>
+                                                            </span>
+                                                        </span>
+                                                        <div style='clear: both;'>                                                        
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                                <div style='clear: both;'>                                                
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}     
+
+                                    <div class="date-outer">
+                                        <h2 class='date-header'><span>Monday, March 10, 2014</span></h2>
+                                        <div class="date-posts">
+                                            <div class='post-outer'>
+                                                <article class='post hentry'>
+                                                    <a name='8007101804428695240'></a>
+                                                    <header class='entry-header'>
+                                                        <h1 class='post-title entry-title'>
+                                                            <a href='http://solon-nbt.blogspot.mx/2014/03/another-one-to-fill-space.html'>Another One to Fill Space</a>
+                                                        </h1>
+                                                        <div class='entry-metanbt'>
+                                                            <span class='posted-onnbt'><i class='fa fa-calendar'></i>&nbsp;&nbsp;Monday, March 10, 2014</span>
+                                                            <span class='bylinenbt'><i class='fa fa-user'></i>
+                                                            <a href='https://www.blogger.com/profile/08540108268512402118' rel='author' title='author profile'>BThemes</a></span>
+                                                            <span class='cat-linksnbt'><i class='fa fa-folder'></i>&nbsp;&nbsp;<a href='http://solon-nbt.blogspot.mx/search/label/Graphic%20Design' rel='tag'>Graphic Design</a>, <a href='http://solon-nbt.blogspot.mx/search/label/Motion%20Design' rel='tag'>Motion Design</a></span>
+                                                            <span class='comments-linknbt'><i class='fa fa-comment'></i>&nbsp;&nbsp;<a href='http://solon-nbt.blogspot.mx/2014/03/another-one-to-fill-space.html#comment-form' onclick=''>No comments</a></span>
+                                                            <span class='item-control blog-admin pid-1395995195'><i class='fa fa-edit'></i>&nbsp;&nbsp;<a href='https://www.blogger.com/post-edit.g?blogID=4936291299364059098&postID=8007101804428695240&from=pencil' title='Edit Post'>Edit</a></span>
+                                                        </div>
+                                                    </header>
+                                                    <div class='post-header-line-1'>                                                    
+                                                    </div>
+                                                    <div class='post-body entry-content'>
+                                                        <div id='summary8007101804428695240'>
+                                                            <div class="separator" style="clear: both; text-align: center;">
+                                                                <a href="http://3.bp.blogspot.com/-njOsqSC-jrE/U5J9qpQe0KI/AAAAAAAAKFA/ieHFy_7QAUM/s1600/postimg-55.jpg" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;">
+                                                                    <img border="0" src="http://3.bp.blogspot.com/-njOsqSC-jrE/U5J9qpQe0KI/AAAAAAAAKFA/ieHFy_7QAUM/s1600/postimg-55.jpg" height="240" width="320" />
+                                                                </a>
+                                                            </div>Lorem ipsum eu usu assum liberavisse, ut munere praesent complectitur mea. Sit an option maiorum principes. Ne per probo magna idque, est veniam exerci appareat no. Sit at amet propriae intellegebat, natum iusto forensibus duo ut. Pro hinc aperiri fabulas ut, probo tractatos euripidis an vis, ignota oblique ut nec. Ad ius munere soluta deterruisset, quot veri id vim, te vel bonorum ornatus persequeris.<br /><br />Sea stet iudico cetero cu, ut mei ferri mnesarchum, at duo enim vivendum abhorreant. Usu eruditi veritus vivendo ut, ut cibo lucilius inciderint eam, ne hinc discere explicari sea. Nam iusto delicata ne, eam dolore singulis maiestatis ex. Cu eruditi dolorem accusam pri, ea vidisse aliquip forensibus eam, ut erant labore fastidii has. Cum quod saepe periculis ea, eos iuvaret maiorum moderatius eu, pro ferri scaevola mnesarchum ut.<br /><br /><br />Nisl malis veritus pro no, pro an enim admodum mediocritatem. Ei his graeci option officiis, no oratio vocent efficiendi vix. Eu prima eleifend volutpat ius, mel atomorum omittantur te, quo debet possim habemus no. Et eum aliquip iuvaret dignissim, dicant epicurei vituperata vim eu. Usu dicunt verear deleniti te.<br /><br />Amet blandit scripserit sit id, ea vim mollis oportere postulant. Nostro suavitate intellegam id mei, mea ex agam quodsi complectitur. Cu eos nibh justo philosophia, no pro velit suscipit philosophia. At est dicit instructior, viderer minimum conceptam no nec, te nec dicta iusto legendos. Duo ex velit vocibus, lucilius quaestio his eu. Cum falli aeterno delicatissimi et, elit justo epicuri has ut.
+                                                        </div>
+                                                        <div style='clear: both;'>                                                        
+                                                        </div>
+                                                        <div class='pbtsharethisbutt'>
+                                                            <ul class='pbt-social-icons' id='social-post-un'>
+                                                                <li class='Share-this-arti'>Share This:&nbsp;&nbsp;</li>
+                                                                <li class='pbtfacebook'><a href='http://www.facebook.com/share.php?v=4&src=bm&u=http://solon-nbt.blogspot.mx/2014/03/another-one-to-fill-space.html&t=Another One to Fill Space' onclick='window.open(this.href,"sharer","toolbar=0,status=0,width=626,height=436"); return false;' rel='nofollow' target='_blank' title='Share this on Facebook'><i class='fa fa-facebook-square'></i>&nbsp;Facebook</a></li><li class='pbttwitter'><a href='http://twitter.com/home?status=Another One to Fill Space -- http://solon-nbt.blogspot.mx/2014/03/another-one-to-fill-space.html' rel='nofollow' target='_blank' title='Tweet This!'><i class='fa fa-twitter-square'></i>&nbsp;Twitter</a></li><li class='pbtgoogle'><a href='https://plus.google.com/share?url=http://solon-nbt.blogspot.mx/2014/03/another-one-to-fill-space.html' onclick='javascript:window.open(this.href,   "", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600");return false;' rel='nofollow' target='_blank' title='Share this on Google+'><i class='fa fa-google-plus-square'></i>&nbsp;Google+</a></li><li class='pbtstumbleupon'><a href='http://www.stumbleupon.com/submit?url=http://solon-nbt.blogspot.mx/2014/03/another-one-to-fill-space.html&title=Another One to Fill Space' rel='nofollow' target='_blank' title='Stumble upon something good? Share it on StumbleUpon'><i class='fa fa-stumbleupon-circle'></i>&nbsp;Stumble</a></li><li class='pbtdigg'><a href='http://digg.com/submit?phase=2&url=http://solon-nbt.blogspot.mx/2014/03/another-one-to-fill-space.html&title=Another One to Fill Space' rel='nofollow' target='_blank' title='Digg this!'><i class='fa fa-digg'></i>&nbsp;Digg</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <span class='read-morenbt'><span class='read-more-iconnbt'><a href='http://solon-nbt.blogspot.mx/2014/03/another-one-to-fill-space.html'><i class='fa fa-plus'></i></a></span></span>
+                                                        <div style='clear: both;'>                                                        
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                                <div style='clear: both;'>                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                          
+                                </div>
+
+                                <div style='clear: both;'>                                    
+                                </div>
+                                <div class='blog-pager' id='blog-pager'>
+                                    <span id='blog-pager-older-link'>
+                                        <a class='blog-pager-older-link' href='http://solon-nbt.blogspot.mx/search?updated-max=2014-03-10T18:01:00-07:00&amp;max-results=4' id='Blog1_blog-pager-older-link' title='Older Posts'>Older Posts&nbsp;&rarr;</a>
+                                    </span>
+                                    <a class='home-link' href='http://solon-nbt.blogspot.mx/'>Home</a>
+                                </div>
+                                <div class='clear'>                                    
+                                </div>
+                                <div class='blog-feeds'>
+                                    <div class='feed-links'>
+                                        Subscribe to:
+                                        <a class='feed-link' href='http://solon-nbt.blogspot.com/feeds/posts/default' target='_blank' type='application/atom+xml'>Posts (Atom)</a>
+                                    </div>
+                                </div>
+                                <script type="text/javascript">window.___gcfg = {'lang': 'en'};</script>
+                            </div>
+                        </div>
+                    </div><!-- #main -->
+                </div>
             </div>
 
-            <!-- ngInclude: 'views/footer.html' -->
+            <!--End Main primary -->
 
-            <footer id="footer" class="app-footer ng-scope">
-                <span class="pull-right ng-binding ng-scope">Magic</span>
-                <span data-translate="COPYRIGHT" class="ng-scope">Copyright</span><span class="ng-binding ng-scope"> 2015</span>
-            </footer>
+            <!--Content-->
 
+            {% for entityContenido in entitiesContenido %}
+            <div ng-if=" $root.r == '{{ entityContenido.subtema}}' ">
+                <!--Ini content-->
+                <div class="content-areanbt" id="primarynbt">
+                    <div class="site-mainnbt" id="mainnbt" role="main">
+                        <!-- featured post slider started -->
+                        <!-- featured post slider end -->
+                        <div class="mainblogsec section" id="mainblogsec">
+                            <div class="widget Blog" id="Blog1">
+                                <div class="blog-posts hfeed">
+                                    <!-- google_ad_section_start(name=default) -->
+                                    <div class="date-outer">                                
+                                        <h2 class="date-header"><span>Monday, March 10, 2014</span></h2>
+                                        <div class="date-posts">                                
+                                            <div class="post-outer">
+                                                <article class="post hentry">
+                                                    <a name="8007101804428695240"></a>
+                                                    <header class="entry-header">
+                                                        <h1 class="post-title entry-title">
+                                                            <a href="#">{{ entityContenido.subtema}}</a>
+                                                        </h1>
+                                                        <div class="entry-metanbt">
+                                                            <span class="posted-onnbt"><i class="fa fa-calendar"></i>Temas </span>
+                                                        </div>
+                                                    </header>
+                                                    <div class="post-header-line-1">                                                                
+                                                    </div>
+                                                    <div class="post-body entry-content">
+                                                        <div class="separator" style="clear: both; text-align: center;">
+                                                            <a href="#" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;">
+                                                                <img src="{{asset('bundles/dscorpadmin/imagenes/'~ entityContenido.imagenes)}}" alt="{{ entityContenido.subtema }}" width="320px" height="240px" border="0">
+                                                            </a>
+                                                        </div>{{ entityContenido.nombreContenido }}
+                                                        <div style="clear:both;">                                                                    
+                                                        </div>
+                                                        <div class="pbtsharethisbutt">
+                                                            <ul class="pbt-social-icons" id="social-post-un">
+                                                                <li class="Share-this-arti">Share This:&nbsp;&nbsp;</li>
+                                                                <li class="pbtfacebook"><a href="http://www.facebook.com/share.php?v=4&amp;src=bm&amp;u=http://solon-nbt.blogspot.mx/2014/03/another-one-to-fill-space.html&amp;t=Another One to Fill Space" onclick="window.open(this.href,&quot;sharer&quot;,&quot;toolbar=0,status=0,width=626,height=436&quot;); return false;" rel="nofollow" target="_blank" title="Share this on Facebook"><i class="fa fa-facebook-square"></i>&nbsp;Facebook</a></li><li class="pbttwitter"><a href="http://twitter.com/home?status=Another One to Fill Space -- http://solon-nbt.blogspot.mx/2014/03/another-one-to-fill-space.html" rel="nofollow" target="_blank" title="Tweet This!"><i class="fa fa-twitter-square"></i>&nbsp;Twitter</a></li><li class="pbtgoogle"><a href="https://plus.google.com/share?url=http://solon-nbt.blogspot.mx/2014/03/another-one-to-fill-space.html" onclick="javascript:window.open(this.href,   &quot;&quot;, &quot;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600&quot;);return false;" rel="nofollow" target="_blank" title="Share this on Google+"><i class="fa fa-google-plus-square"></i>&nbsp;Google+</a></li><li class="pbtstumbleupon"><a href="http://www.stumbleupon.com/submit?url=http://solon-nbt.blogspot.mx/2014/03/another-one-to-fill-space.html&amp;title=Another One to Fill Space" rel="nofollow" target="_blank" title="Stumble upon something good? Share it on StumbleUpon"><i class="fa fa-stumbleupon-circle"></i>&nbsp;Stumble</a></li><li class="pbtdigg"><a href="http://digg.com/submit?phase=2&amp;url=http://solon-nbt.blogspot.mx/2014/03/another-one-to-fill-space.html&amp;title=Another One to Fill Space" rel="nofollow" target="_blank" title="Digg this!"><i class="fa fa-digg"></i>&nbsp;Digg</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div style="clear: both;">                                                                    
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                                <div style="clear: both;">                                                            
+                                                </div>
+                                                <div class="blog-pager" id="blog-pager">
+                                                    <span id="blog-pager-newer-link">
+                                                        <a class="blog-pager-newer-link" href="http://solon-nbt.blogspot.mx/2014/03/keeping-title-length-equal-for-home.html" id="Blog1_blog-pager-newer-link" title="Newer Post">←&nbsp;Newer Post</a>
+                                                    </span>
+                                                    <span id="blog-pager-older-link">
+                                                        <a class="blog-pager-older-link" href="http://solon-nbt.blogspot.mx/2014/03/this-is-going-to-be-decent-length-title.html" id="Blog1_blog-pager-older-link" title="Older Post">Older Post&nbsp;→</a>
+                                                    </span>
+                                                        <a class="home-link" href="http://solon-nbt.blogspot.mx/">Home</a>
+                                                </div>
+                                                <div class="clear">                                                            
+                                                </div>
+                                                <div class="comments" id="comments">
+                                                    <a name="comments"></a>
+                                                    <h4>0 comments:</h4>
+                                                    <div id="Blog1_comments-block-wrapper">
+                                                        <dl class="avatar-comment-indent" id="comments-block">
+                                                        </dl>
+                                                    </div>
+                                                    <p class="comment-footer">
+                                                    </p>
+                                                    <div class="comment-form">
+                                                        <a name="comment-form"></a>
+                                                        <h4 id="comment-post-message">Post a Comment</h4>
+                                                        <p>
+                                                        </p>
+                                                        <p>Note: Only a member of this blog may post a comment.</p>
+                                                        <a href="#" id="#"></a>                                         
+                                                    </div>
+                                                    <p></p>
+                                                    <div id="backlinks-container">
+                                                        <div id="Blog1_backlinks-container"><a name="links"></a><h4>Links to this post</h4>
+                                                            <p class="comment-footer">
+                                                                <a class="comment-link" href="https://www.blogger.com/blog-this.g" id="Blog1_backlinks-create-link" target="_blank">Create a Link</a>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                              
+                                <!-- google_ad_section_end -->
+                                </div>
+                                <div style="clear: both;">                                            
+                                </div>
+                                <div class="post-feeds">
+                                    <div class="feed-links">
+                                        Subscribe to:
+                                        <a class="feed-link" href="http://solon-nbt.blogspot.com/feeds/8007101804428695240/comments/default" target="_blank" type="application/atom+xml">Post Comments (Atom)</a>
+                                    </div>
+                                </div>
+                                <script type="text/javascript">window.___gcfg = {'lang': 'en'};</script>
+                            </div>
+                        </div>
+                    </div><!-- #main -->
+                </div>
 
+                <!--End content-->                    
+            </div>
+            {% endfor %}
+
+            <!--End Content-->
+
+            <div class='widget-areanbt' id='secondarynbt' role='complementary'>
+                <div class='sidebar section' id='sidebartop'>
+                    <div class='widget PopularPosts' id='PopularPosts1'>
+                        <h2>Popular Postsss</h2>
+                        <div class='widget-content popular-posts'>
+                            <ul>
+                                <li>
+                                    <div class='item-content'>
+                                        <div class='item-thumbnail'>
+                                            <a href='http://solon-nbt.blogspot.mx/2014/04/sample-post-with-links-paragraphs-and.html' target='_blank'>
+                                                <img alt='' border='0' height='72' src='http://1.bp.blogspot.com/-v8zWdibSlLg/U5J9pHU13zI/AAAAAAAAKEw/WkX-S4BehRw/s72-c/postimg-1.jpg' width='72'/>
+                                            </a>
+                                        </div>
+                                        <div class='item-title'>
+                                            <a href='http://solon-nbt.blogspot.mx/2014/04/sample-post-with-links-paragraphs-and.html'>Sample post with, links, paragraphs and comments</a>
+                                        </div>
+                                        <div class='item-snippet'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor  incididunt ut labore et dolore magna aliqua. Ut enim ad min...</div>
+                                    </div>
+                                    <div style='clear: both;'></div>
+                                </li>
+                                <li>
+                                    <div class='item-content'>
+                                        <div class='item-thumbnail'>
+                                            <a href='http://solon-nbt.blogspot.mx/2014/04/this-is-just-going-to-be-another-test.html' target='_blank'>
+                                                <img alt='' border='0' height='72' src='http://1.bp.blogspot.com/-cVdro5T6geg/U5J9pq5NXeI/AAAAAAAAKE4/tpQR7VLlKFE/s72-c/postimg-44.jpg' width='72'/>
+                                            </a>
+                                        </div>
+                                        <div class='item-title'>
+                                            <a href='http://solon-nbt.blogspot.mx/2014/04/this-is-just-going-to-be-another-test.html'>This is Just Going To Be Another Test Post</a>
+                                        </div>
+                                        <div class='item-snippet'>Lorem ipsum eu usu assum liberavisse, ut munere praesent complectitur mea. Sit an option maiorum principes. Ne per probo magna idque, est ve...</div>
+                                    </div>
+                                    <div style='clear: both;'></div>
+                                </li>
+                                <li>
+                                    <div class='item-content'>
+                                        <div class='item-thumbnail'>
+                                            <a href='http://solon-nbt.blogspot.mx/2014/03/another-one-to-fill-space.html' target='_blank'>
+                                                <img alt='' border='0' height='72' src='http://3.bp.blogspot.com/-njOsqSC-jrE/U5J9qpQe0KI/AAAAAAAAKFA/ieHFy_7QAUM/s72-c/postimg-55.jpg' width='72'/>
+                                            </a>
+                                        </div>
+                                        <div class='item-title'>
+                                            <a href='http://solon-nbt.blogspot.mx/2014/03/another-one-to-fill-space.html'>Another One to Fill Space</a>
+                                        </div>
+                                        <div class='item-snippet'>Lorem ipsum eu usu assum liberavisse, ut munere praesent complectitur mea. Sit an option maiorum principes. Ne per probo magna idque, est ve...</div>
+                                    </div>
+                                    <div style='clear: both;'></div>
+                                </li>
+                            </ul>
+                            <div class='clear'>
+                            </div>
+                            <span class='widget-item-control'>
+                                <span class='item-control blog-admin'>
+                                    <a class='quickedit' href='//www.blogger.com/rearrange?blogID=4936291299364059098&widgetType=PopularPosts&widgetId=PopularPosts1&action=editWidget&sectionId=sidebartop' onclick='return _WidgetManager._PopupConfig(document.getElementById("PopularPosts1"));' target='configPopularPosts1' title='Edit'>
+                                        <img alt='' height='18' src='//img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+                                    </a>
+                                </span>
+                            </span>
+                            <div class='clear'>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='widget HTML' id='HTML1'>
+                        <h2 class='title'>Posts Recientesss</h2>
+                        <div class='widget-content'>
+                            {% for entitySubtema in entitiesSubtema |reverse|slice(0, 3) %}
+                                <li>{{ entitySubtema.nombreSub|e }}</li>
+                            {% endfor %}
+                        </div>      
+                        <div class='clear'>
+                        </div>
+                    </div>
+                    <div class='widget Label' id='Label1'>
+                        <h2>Categories</h2>
+                        <div class='widget-content list-label-widget-content'>
+                            <ul>
+                                <li>
+                                    <a dir='ltr' href='http://solon-nbt.blogspot.mx/search/label/Entertainment'>Entertainment</a>
+                                    <span dir='ltr'>(1)</span>
+                                </li>
+                                <li>
+                                    <a dir='ltr' href='http://solon-nbt.blogspot.mx/search/label/Graphic%20Design'>Graphic Design</a>
+                                    <span dir='ltr'>(3)</span>
+                                </li>
+                                <li>
+                                    <a dir='ltr' href='http://solon-nbt.blogspot.mx/search/label/HTML%20Elements'>HTML Elements</a>
+                                    <span dir='ltr'>(1)</span>
+                                </li>
+                                <li>
+                                    <a dir='ltr' href='http://solon-nbt.blogspot.mx/search/label/Motion%20Design'>Motion Design</a>
+                                    <span dir='ltr'>(3)</span>
+                                </li>
+                                <li>
+                                    <a dir='ltr' href='http://solon-nbt.blogspot.mx/search/label/Sports'>Sports</a>
+                                    <span dir='ltr'>(4)</span>
+                                </li>
+                                <li>
+                                    <a dir='ltr' href='http://solon-nbt.blogspot.mx/search/label/Web%20Design'>Web Design</a>
+                                    <span dir='ltr'>(4)</span>
+                                </li>
+                            </ul>
+                            <div class='clear'>
+                            </div>
+                            <span class='widget-item-control'>
+                                <span class='item-control blog-admin'>
+                                    <a class='quickedit' href='//www.blogger.com/rearrange?blogID=4936291299364059098&widgetType=Label&widgetId=Label1&action=editWidget&sectionId=sidebartop' onclick='return _WidgetManager._PopupConfig(document.getElementById("Label1"));' target='configLabel1' title='Edit'>
+                                        <img alt='' height='18' src='//img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+                                    </a>
+                                </span>
+                            </span>
+                            <div class='clear'>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='widget HTML' id='HTML2'>
+                        <h2 class='title'>Unordered List</h2>
+                        <div class='widget-content'>
+                            <ul>
+                               <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                               <li>Aliquam tincidunt mauris eu risus.</li>
+                               <li>Vestibulum auctor dapibus neque.</li>
+                            </ul>
+                        </div>
+                        <div class='clear'>
+                        </div>
+                        <span class='widget-item-control'>
+                            <span class='item-control blog-admin'>
+                                <a class='quickedit' href='//www.blogger.com/rearrange?blogID=4936291299364059098&widgetType=HTML&widgetId=HTML2&action=editWidget&sectionId=sidebartop' onclick='return _WidgetManager._PopupConfig(document.getElementById("HTML2"));' target='configHTML2' title='Edit'>
+                                    <img alt='' height='18' src='//img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+                                </a>
+                            </span>
+                        </span>
+                        <div class='clear'>
+                        </div>
+                    </div>
+                    <div class='widget Text' id='Text2'>
+                        <h2 class='title'>Text Widget</h2>
+                        <div class='widget-content'>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation test link ullamco laboris nisi ut aliquip ex ea commodo consequat. <br /><br />Duis aute irure dolor in reprehenderit in voluptate another link velit esse cillum dolore eu fugiat nulla pariatur.
+                        </div>
+                        <div class='clear'>
+                        </div>
+                        <span class='widget-item-control'>
+                            <span class='item-control blog-admin'>
+                                <a class='quickedit' href='//www.blogger.com/rearrange?blogID=4936291299364059098&widgetType=Text&widgetId=Text2&action=editWidget&sectionId=sidebartop' onclick='return _WidgetManager._PopupConfig(document.getElementById("Text2"));' target='configText2' title='Edit'>
+                                    <img alt='' height='18' src='//img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+                                </a>
+                            </span>
+                        </span>
+                        <div class='clear'>
+                        </div>
+                    </div>
+                    <div class='widget BlogArchive' id='BlogArchive1'>
+                        <h2>Blog Archive</h2>
+                        <div class='widget-content'>
+                            <div id='ArchiveList'>
+                                <div id='BlogArchive1_ArchiveList'>
+                                    <select id='BlogArchive1_ArchiveMenu'>
+                                        <option value=''>Blog Archive</option>
+                                        <option value='http://solon-nbt.blogspot.mx/2014_04_01_archive.html'>April (2)</option>
+                                        <option value='http://solon-nbt.blogspot.mx/2014_03_01_archive.html'>March (3)</option>
+                                        <option value='http://solon-nbt.blogspot.mx/2014_02_01_archive.html'>February (2)</option>
+                                        <option value='http://solon-nbt.blogspot.mx/2014_01_01_archive.html'>January (2)</option>
+                                        <option value='http://solon-nbt.blogspot.mx/2013_12_01_archive.html'>December (2)</option>
+                                        <option value='http://solon-nbt.blogspot.mx/2013_11_01_archive.html'>November (1)</option>
+                                        <option value='http://solon-nbt.blogspot.mx/2013_10_01_archive.html'>October (1)</option>
+                                        <option value='http://solon-nbt.blogspot.mx/2013_04_01_archive.html'>April (1)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class='clear'></div>
+                            <span class='widget-item-control'>
+                                <span class='item-control blog-admin'>
+                                    <a class='quickedit' href='//www.blogger.com/rearrange?blogID=4936291299364059098&widgetType=BlogArchive&widgetId=BlogArchive1&action=editWidget&sectionId=sidebartop' onclick='return _WidgetManager._PopupConfig(document.getElementById("BlogArchive1"));' target='configBlogArchive1' title='Edit'>
+                                        <img alt='' height='18' src='//img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+                                    </a>
+                                </span>
+                            </span>
+                            <div class='clear'></div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- #secondary -->
+
+        </div><!-- #content -->
+
+        <div class='footer-widget-areanbt clearfix' id='sidebar-footernbt' role='complementary'>
+            <div class='container'>
+                <div class='sidebar-columnnbt col-md-4 col-sm-4'>
+                    <div class='footersec section' id='footersec1'>
+                        <div class='widget Feed' id='Feed1'>
+                            <h2>Blogger Themes</h2>
+                            <div class='widget-content' id='Feed1_feedItemListDisplay'>
+                                <span style='filter: alpha(25); opacity: 0.25;'>
+                                    <a href='http://newbloggerthemes.com/feed/'>Loading...</a>
+                                </span>
+                            </div>
+                            <div class='clear'>
+                            </div>
+                            <span class='widget-item-control'>
+                                <span class='item-control blog-admin'>
+                                    <a class='quickedit' href='//www.blogger.com/rearrange?blogID=4936291299364059098&widgetType=Feed&widgetId=Feed1&action=editWidget&sectionId=footersec1' onclick='return _WidgetManager._PopupConfig(document.getElementById("Feed1"));' target='configFeed1' title='Edit'>
+                                        <img alt='' height='18' src='//img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+                                    </a>
+                                </span>
+                            </span>
+                            <div class='clear'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='sidebar-columnnbt col-md-4 col-sm-4'>
+                    <div class='footersec section' id='footersec2'>
+                        <div class='widget Text' id='Text1'>
+                            <h2 class='title'>Sample Text</h2>
+                            <div class='widget-content'>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation test link ullamco laboris nisi ut aliquip ex ea commodo consequat. <br /><br />Duis aute irure dolor in reprehenderit in voluptate another link velit esse cillum dolore eu fugiat nulla pariatur.
+                            </div>
+                            <div class='clear'>
+                            </div>
+                            <span class='widget-item-control'>
+                                <span class='item-control blog-admin'>
+                                    <a class='quickedit' href='//www.blogger.com/rearrange?blogID=4936291299364059098&widgetType=Text&widgetId=Text1&action=editWidget&sectionId=footersec2' onclick='return _WidgetManager._PopupConfig(document.getElementById("Text1"));' target='configText1' title='Edit'>
+                                        <img alt='' height='18' src='//img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+                                    </a>
+                                </span>
+                            </span>
+                            <div class='clear'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='sidebar-columnnbt col-md-4 col-sm-4'>
+                    <div class='footersec section' id='footersec3'>
+                        <div class='widget PageList' id='PageList1'>
+                            <h2>Pages</h2>
+                            <div class='widget-content'>
+                                <ul>
+                                    <li class='selected'><a href='http://solon-nbt.blogspot.mx/'>Home</a></li>
+                                    <li><a href='http://solon-nbt.blogspot.mx/p/about.html'>About</a></li>
+                                    <li><a href='http://solon-nbt.blogspot.mx/p/support.html'>Support</a></li>
+                                    <li><a href='http://solon-nbt.blogspot.mx/p/contact.html'>Contact</a></li>
+                                    <li><a href='http://solon-nbt.blogspot.mx/p/advertise.html'>Advertise</a></li>
+                                </ul>
+                                <div class='clear'>
+                                </div>
+                                <span class='widget-item-control'>
+                                    <span class='item-control blog-admin'>
+                                        <a class='quickedit' href='//www.blogger.com/rearrange?blogID=4936291299364059098&widgetType=PageList&widgetId=PageList1&action=editWidget&sectionId=footersec3' onclick='return _WidgetManager._PopupConfig(document.getElementById("PageList1"));' target='configPageList1' title='Edit'>
+                                            <img alt='' height='18' src='//img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+                                        </a>
+                                    </span>
+                                </span>
+                                <div class='clear'>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        
+        <footer class='site-footernbt' id='colophonnbt' role='contentinfo'>
+            <div class='site-infonbt'>
+                <div class='container'>
+                    <!-- Do not edit or remove credits without our permission: newbloggerthemes.com -->
+                    Copyright &#169; <script type='text/javascript'>var creditsyear = new Date();document.write(creditsyear.getFullYear());</script>
+                    <a href='http://solon-nbt.blogspot.mx/'>Solon</a> | Powered by <a href='http://www.blogger.com/'>Blogger</a><br/>Design by <a href='http://athemes.com/' target='_blank'>aThemes</a> | Blogger Theme by <a href='http://newbloggerthemes.com/' target='_blank' title='NewBloggerThemes.com'>NewBloggerThemes.com</a>
+                </div><!-- .site-info -->
+            </div>
+        </footer><!-- #colophon -->
 
-        <script async="" src="//www.google-analytics.com/analytics.js"></script>
-        <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-        <script src="http://maps.google.com/maps-api-v3/api/js/22/2/intl/es_419/main.js"></script>
-        <script src="{{ asset('bundles/vista/scripts/vendor.js') }}"></script>
-        <script src="{{ asset('bundles/vista/scripts/ui.js') }}"></script>
-        <script src="{{ asset('bundles/vista/scripts/app.js') }}"></script>
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-            ga('create', 'UA-54350686-1', 'auto');
-            ga('send', 'pageview');
+        <script type="text/javascript">
+            angular.module('plunker', ['ui.bootstrap']);
+            function Ctrl1($scope) {
+                $scope.test = function(callback){
+                    eval(callback);
+                };
+            }
+
+            function CarouselDemoCtrl($scope){
+                $scope.myInterval = 3000;
+                $scope.slides = [
+                {% for entityContenido in entitiesContenido %}
+                {
+                    image: '../../../bundles/dscorpadmin/imagenes/{{entityContenido.imagenes}}'
+                },
+                {% endfor %}
+                ];
+            }
         </script>
-        <input id="textAngular-editableFix-010203040506070809" style="width:1px;height:1px;border:none;margin:0;padding:0;position:absolute; top: -10000px; left: -10000px;" unselectable="on" tabindex="-1">
-        <div id="flotTip" style="display: none; position: absolute;">                
-        </div>
     </body>
 </html>

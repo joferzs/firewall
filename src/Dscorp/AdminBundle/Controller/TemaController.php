@@ -23,9 +23,11 @@ class TemaController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('DscorpAdminBundle:Tema')->findAll();
+        $entitiesIdioma = $em->getRepository('DscorpAdminBundle:Idioma')->findAll();
 
         return $this->render('DscorpAdminBundle:Tema:index.html.twig', array(
             'entities' => $entities,
+            'entitiesIdioma' => $entitiesIdioma
         ));
     }
 

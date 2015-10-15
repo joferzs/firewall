@@ -22,10 +22,14 @@ class SubtemaController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
+        $entitiesTema = $em->getRepository('DscorpAdminBundle:Tema')->findAll();
         $entities = $em->getRepository('DscorpAdminBundle:Subtema')->findAll();
+        $entitiesIdioma = $em->getRepository('DscorpAdminBundle:Idioma')->findAll();
 
         return $this->render('DscorpAdminBundle:Subtema:index.html.twig', array(
             'entities' => $entities,
+            'entitiesIdioma' => $entitiesIdioma,
+            'entitiesTema' => $entitiesTema
         ));
     }
 

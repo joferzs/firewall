@@ -23,9 +23,15 @@ class ContenidoController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('DscorpAdminBundle:Contenido')->findAll();
+        $entitiesTema = $em->getRepository('DscorpAdminBundle:Tema')->findAll();
+        $entitiesSubtema = $em->getRepository('DscorpAdminBundle:Subtema')->findAll();
+        $entitiesIdioma = $em->getRepository('DscorpAdminBundle:Idioma')->findAll();
 
         return $this->render('DscorpAdminBundle:Contenido:index.html.twig', array(
             'entities' => $entities,
+            'entitiesSubtema' => $entitiesSubtema,
+            'entitiesIdioma' => $entitiesIdioma,
+            'entitiesTema' => $entitiesTema
         ));
     }
 

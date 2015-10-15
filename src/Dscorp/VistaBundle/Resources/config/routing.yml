@@ -2,7 +2,7 @@ vista_homepage:
     pattern:  /
     defaults: { _controller: VistaBundle:Default:index }
 vista:
-    pattern:  /dscorp/
+    pattern:  /dscorp/es/
     defaults: { _controller: VistaBundle:Default:vista }
 lenguaje:
     pattern:  /dscorp/{id}/

@@ -20,7 +20,7 @@ class DefaultController extends Controller
         $entitiesContenido = $em->getRepository('DscorpAdminBundle:Contenido')->findAll();
         $entitiesImagen = $em->getRepository('DscorpAdminBundle:Imagenes')->findAll();
         $entitiesIdioma = $em->getRepository('DscorpAdminBundle:Idioma')->findAll();
-        $id='Español';
+        $id='es';
 
         return $this->render('VistaBundle:Vista:index.html.twig', array(
             'entitiesContenido' => $entitiesContenido,
@@ -42,7 +42,7 @@ class DefaultController extends Controller
         $entitiesImagen = $em->getRepository('DscorpAdminBundle:Imagenes')->findAll();
         $entitiesIdioma = $em->getRepository('DscorpAdminBundle:Idioma')->findAll();
 
-        return $this->render('VistaBundle:Include:content.html.twig', array(
+        return $this->render('VistaBundle:Vista:index.html.twig', array(
             'entitiesContenido' => $entitiesContenido,
             'entitiesTema' => $entitiesTema,
             'entitiesImagen' => $entitiesImagen,
