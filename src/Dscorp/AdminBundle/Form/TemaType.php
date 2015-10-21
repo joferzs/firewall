@@ -11,8 +11,9 @@ class TemaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nombreTema')
+            ->add('nombreTema','text',array('label'=>'Nombre del Tema'))
             ->add('idioma')
+            //->add('idioma','text',array('label'=>'Idioma del Tema'))
         ;
     }
 
