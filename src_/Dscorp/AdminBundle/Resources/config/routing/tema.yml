@@ -1,0 +1,30 @@
+tema:
+    pattern:  /
+    defaults: { _controller: "DscorpAdminBundle:Tema:index" }
+
+tema_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "DscorpAdminBundle:Tema:show" }
+
+tema_new:
+    pattern:  /new
+    defaults: { _controller: "DscorpAdminBundle:Tema:new" }
+
+tema_create:
+    pattern:  /create
+    defaults: { _controller: "DscorpAdminBundle:Tema:create" }
+    requirements: { _method: post }
+
+tema_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "DscorpAdminBundle:Tema:edit" }
+
+tema_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "DscorpAdminBundle:Tema:update" }
+    requirements: { _method: post }
+
+tema_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "DscorpAdminBundle:Tema:delete" }
+    requirements: { _method: post }

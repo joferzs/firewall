@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' %} 
+{% block title %}Admin Subtema{% endblock %}
+{% block contenido %}
+<h1>Subtema</h1>
+
+<form action="{{ path('subtema_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <a href="{{ path('subtema') }}" class="btn btn-outline btn-back" >Regresar</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn btn-outline btn-warning" type="reset">Reset</button>
+	    <button class="btn btn-outline btn-primary" type="submit">Crear</button>
+    </p>
+</form>
+
+{% endblock %}

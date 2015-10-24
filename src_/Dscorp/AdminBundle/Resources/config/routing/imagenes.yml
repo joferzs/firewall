@@ -1,0 +1,30 @@
+imagenes:
+    pattern:  /
+    defaults: { _controller: "DscorpAdminBundle:Imagenes:index" }
+
+imagenes_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "DscorpAdminBundle:Imagenes:show" }
+
+imagenes_new:
+    pattern:  /new
+    defaults: { _controller: "DscorpAdminBundle:Imagenes:new" }
+
+imagenes_create:
+    pattern:  /create
+    defaults: { _controller: "DscorpAdminBundle:Imagenes:create" }
+    requirements: { _method: post }
+
+imagenes_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "DscorpAdminBundle:Imagenes:edit" }
+
+imagenes_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "DscorpAdminBundle:Imagenes:update" }
+    requirements: { _method: post }
+
+imagenes_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "DscorpAdminBundle:Imagenes:delete" }
+    requirements: { _method: post }

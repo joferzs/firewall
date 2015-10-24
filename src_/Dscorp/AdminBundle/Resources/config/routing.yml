@@ -1,0 +1,21 @@
+dscorp_admin_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: DscorpAdminBundle:Default:index }
+admin:
+    pattern:  /admin
+    defaults: { _controller: DscorpAdminBundle:Default:admin }
+DscorpAdminBundle_tema:
+        resource: "@DscorpAdminBundle/Resources/config/routing/tema.yml"
+        prefix:   /tema
+DscorpAdminBundle_subtema:
+        resource: "@DscorpAdminBundle/Resources/config/routing/subtema.yml"
+        prefix:   /subtema
+DscorpAdminBundle_contenido:
+        resource: "@DscorpAdminBundle/Resources/config/routing/contenido.yml"
+        prefix:   /contenido
+DscorpAdminBundle_imagenes:
+        resource: "@DscorpAdminBundle/Resources/config/routing/imagenes.yml"
+        prefix:   /imagenes
+DscorpAdminBundle_idioma:
+        resource: "@DscorpAdminBundle/Resources/config/routing/idioma.yml"
+        prefix:   /idioma

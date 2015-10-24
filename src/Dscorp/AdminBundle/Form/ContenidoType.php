@@ -11,9 +11,9 @@ class ContenidoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nombreContenido')
-            ->add('subtema')
-            ->add('imagenes')
+            ->add('nombreContenido','text',array('label'=>'Ingrese el contenido','attr' => array('class' => 'clasesilla')))
+            ->add('subtema','entity',array('class' => 'DscorpAdminBundle:Subtema','label'=>'Subtema','attr' => array('class' => 'chosen-select clasesilla')))
+            ->add('imagenes','entity',array('class' => 'DscorpAdminBundle:Imagenes','label'=>'Imagen','attr' => array('class' => 'chosen-select clasesilla')))
         ;
     }
 

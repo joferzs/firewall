@@ -11,8 +11,8 @@ class ImagenesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nombreImagen')
-            ->add('imagen','file')
+            ->add('nombreImagen','text',array('label'=>'Nombre de la imagen:','attr' => array('class' => 'clasesilla')))
+            ->add('imagen','file',array('label'=>'Agregar imagen:'))
         ;
     }
 

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>{% block title %}Admin{% endblock %}</title>
+      <!-- BOOTSTRAP STYLES-->
+      <link href="{{ asset('bundles/dscorpadmin/css/bootstrap.css') }}" rel="stylesheet" />
+      <!-- FONTAWESOME STYLES-->
+      <link href="{{ asset('bundles/dscorpadmin/css/font-awesome.css') }}" rel="stylesheet" />
+      <!-- MORRIS CHART STYLES-->
+      <link href="{{ asset('bundles/dscorpadmin/js/morris/morris-0.4.3.min.css') }}" rel="stylesheet" />
+      <!-- ANIMATION-->
+      <link href="{{ asset('bundles/dscorpadmin/css/animations.css') }}" rel="stylesheet" />
+      <!-- CUSTOM STYLES-->
+      <link href="{{ asset('bundles/dscorpadmin/css/custom.css') }}" rel="stylesheet" />
+      <!-- STYLES FORMS AND INDEX-->
+      <link href="{{ asset('bundles/dscorpadmin/css/style.css') }}" rel="stylesheet" />
+      <link href="{{ asset('bundles/dscorpadmin/css/stylesform.css') }}" rel="stylesheet" />
+      <!-- GOOGLE FONTS-->
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   </head>
+   <body>
+      <div id="wrapper">
+         <nav class="navbar navbar-default navbar-cls-top navbar-fixed-top" role="navigation" >
+         <a href="#" class="sd-toggle"><i class="fa fa-align-left fa-2x"></i></a>
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+               <!--  <a class="navbar-brand" href="index.html">RS Admin</a> -->
+            </div>
+            <ul class="nav navbar-top-links navbar-right">
+               <li class="dropdown nav-icon-btn">
+                  <a class="dropdown-toggle nav-icon-btn-danger" data-toggle="dropdown" href="#">
+                  <span class="label">5</span>
+                  <i class="fa fa-envelope fa-fw"></i>                    </a>
+                  <ul class="dropdown-menu dropdown-messages">
+                     <li>
+                        <a href="#">
+                           <div>
+                              <strong>John Smith</strong>
+                              <span class="pull-right text-muted">
+                              <em>Yesterday</em>
+                              </span>
+                           </div>
+                           <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                        </a>
+                     </li>
+                     <li class="divider"></li>
+                     <li>
+                        <a href="#">
+                           <div>
+                              <strong>John Smith</strong>
+                              <span class="pull-right text-muted">
+                              <em>Yesterday</em>
+                              </span>
+                           </div>
+                           <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                        </a>
+                     </li>
+                     <li class="divider"></li>
+                     <li>
+                        <a href="#">
+                           <div>
+                              <strong>John Smith</strong>
+                              <span class="pull-right text-muted">
+                              <em>Yesterday</em>
+                              </span>
+                           </div>
+                           <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                        </a>
+                     </li>
+                     <li class="divider"></li>
+                     <li>
+                        <a class="text-center" href="#">
+                        <strong>Read All Messages</strong>
+                        <i class="fa fa-angle-right"></i>
+                        </a>
+                     </li>
+                  </ul>
+                  <!-- /.dropdown-messages -->
+               </li>
+               <!-- /.dropdown -->
+               <li class="dropdown nav-icon-btn">
+                  <a class="dropdown-toggle nav-icon-btn-success" data-toggle="dropdown" href="#">
+                  <span class="label">10</span>
+                  <i class="fa fa-tasks fa-fw"></i>                    </a>
+                  <ul class="dropdown-menu dropdown-tasks">
+                     <li>
+                        <a href="#">
+                           <div>
+                              <strong>Task 1</strong>
+                              <span class="pull-right text-muted">40% Complete</span>
+                              <div class="progress progress-striped active">
+                                 <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                    <span class="sr-only">40% Complete (success)</span>
+                                 </div>
+                              </div>
+                           </div>
+                        </a>
+                     </li>
+                     <li class="divider"></li>
+                     <li>
+                        <a href="#">
+                           <div>
+                              <strong>Task 2</strong>
+                              <span class="pull-right text-muted">20% Complete</span>
+                              <div class="progress progress-striped active">
+                                 <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                    <span class="sr-only">20% Complete</span>
+                                 </div>
+                              </div>
+                           </div>
+                        </a>
+                     </li>
+                     <li class="divider"></li>
+                     <li>
+                        <a href="#">
+                           <div>
+                              <strong>Task 3</strong>
+                              <span class="pull-right text-muted">60% Complete</span>
+                              <div class="progress progress-striped active">
+                                 <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                    <span class="sr-only">60% Complete (warning)</span>
+                                 </div>
+                              </div>
+                           </div>
+                        </a>
+                     </li>
+                     <li class="divider"></li>
+                     <li>
+                        <a href="#">
+                           <div>
+                              <strong>Task 4</strong>
+                              <span class="pull-right text-muted">80% Complete</span>
+                              <div class="progress progress-striped active">
+                                 <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                    <span class="sr-only">80% Complete (danger)</span>
+                                 </div>
+                              </div>
+                           </div>
+                        </a>
+                     </li>
+                     <li class="divider"></li>
+                     <li>
+                        <a class="text-center" href="#">
+                        <strong>See All Tasks</strong>
+                        <i class="fa fa-angle-right"></i>
+                        </a>
+                     </li>
+                  </ul>
+                  <!-- /.dropdown-tasks -->
+               </li>
+               <!-- /.dropdown -->
+               <li class="dropdown  nav-icon-btn">
+                  <a class="dropdown-toggle nav-icon-btn-warning" data-toggle="dropdown" href="#">
+                  <span class="label">15</span>
+                  <i class="fa fa-bell fa-fw"></i>                    </a>
+                  <ul class="dropdown-menu dropdown-alerts">
+                     <li>
+                        <a href="#">
+                           <div>
+                              <i class="fa fa-comment fa-fw"></i> New Comment
+                              <span class="pull-right text-muted small">4 minutes ago</span>
+                           </div>
+                        </a>
+                     </li>
+                     <li class="divider"></li>
+                     <li>
+                        <a href="#">
+                           <div>
+                              <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                              <span class="pull-right text-muted small">12 minutes ago</span>
+                           </div>
+                        </a>
+                     </li>
+                     <li class="divider"></li>
+                     <li>
+                        <a href="#">
+                           <div>
+                              <i class="fa fa-envelope fa-fw"></i> Message Sent
+                              <span class="pull-right text-muted small">4 minutes ago</span>
+                           </div>
+                        </a>
+                     </li>
+                     <li class="divider"></li>
+                     <li>
+                        <a href="#">
+                           <div>
+                              <i class="fa fa-tasks fa-fw"></i> New Task
+                              <span class="pull-right text-muted small">4 minutes ago</span>
+                           </div>
+                        </a>
+                     </li>
+                     <li class="divider"></li>
+                     <li>
+                        <a href="#">
+                           <div>
+                              <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                              <span class="pull-right text-muted small">4 minutes ago</span>
+                           </div>
+                        </a>
+                     </li>
+                     <li class="divider"></li>
+                     <li>
+                        <a class="text-center" href="#">
+                        <strong>See All Alerts</strong>
+                        <i class="fa fa-angle-right"></i>
+                        </a>
+                     </li>
+                  </ul>
+                  <!-- /.dropdown-alerts -->
+               </li>
+               <!-- /.dropdown -->
+               <li class="dropdown nav-icon-btn">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                  </a>
+                  <ul class="dropdown-menu dropdown-user">
+                     <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                     </li>
+                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                     </li>
+                     <li class="divider"></li>
+                     <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                     </li>
+                  </ul>
+                  <!-- /.dropdown-user -->
+               </li>
+               <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+         </nav>
+         <!-- /. NAV TOP  -->
+         <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+               <div class="admin-name">Admin</div>
+               <div id="menu-content-demo" class="menu-content top animated fadeIn">
+                  <!-- Menu custom content demo
+                     CSS:        styles/pixel-admin-less/demo.less or styles/pixel-admin-scss/_demo.scss
+                     Javascript: html/assets/demo/demo.js
+                     -->
+                  <div>
+                     <div class="text-bg"><span class="text-slim">Welcome,</span> <span class="text-semibold">John</span></div>
+                     <img class="" alt="" src="assets/demo/avatars/1.jpg">
+                     <div class="btn-group">
+                        <a class="btn btn-xs btn-primary btn-outline dark" href="#"><i class="fa fa-envelope"></i></a>
+                        <a class="btn btn-xs btn-primary btn-outline dark" href="#"><i class="fa fa-user"></i></a>
+                        <a class="btn btn-xs btn-primary btn-outline dark" href="#"><i class="fa fa-cog"></i></a>
+                        <a class="btn btn-xs btn-danger btn-outline dark" href="#"><i class="fa fa-power-off"></i></a>
+                     </div>
+                  </div>
+               </div>
+               <ul class="nav" id="main-menu">
+                  <li>
+                     <a class="active-menu"  href="#"><i class="fa fa-dashboard fa-lg"></i> Dashboard</a>
+                  </li>
+                  <li>
+                     <a href="#"><i class="fa fa-sitemap fa-lg"></i>Form Elements<span class="fa arrow"></span></a>
+                     <ul class="nav nav-second-level">
+                        <li>
+                           <a href="form-elements.html">Bootstrap Form Elements</a>
+                        </li>
+                        <li>
+                           <a href="forms.html">Bootstrap Forms</a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li>
+                     <a  href="ui.html"><i class="fa fa-desktop fa-lg"></i> UI Elements</a>
+                  </li>
+                  <li>
+                     <a href=""><i class="fa fa-sitemap fa-lg"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                     <ul class="nav nav-second-level">
+                        <li>
+                           <a href="">Second Level Link</a>
+                        </li>
+                        <li>
+                           <a href="">Second Level Link</a>
+                        </li>
+                        <li>
+                           <a href="">Second Level Link<span class="fa arrow"></span></a>
+                           <ul class="nav nav-third-level">
+                              <li>
+                                 <a href="">Third Level Link</a>
+                              </li>
+                              <li>
+                                 <a href="">Third Level Link</a>
+                              </li>
+                              <li>
+                                 <a href="">Third Level Link</a>
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </li>
+                  <li  >
+                     <a  href="{{ path('tema') }}"><i class="fa fa-square-o fa-lg"></i>Tema</a>
+                  </li>
+                  <li  >
+                     <a  href="{{ path('subtema') }}"><i class="fa fa-square-o fa-lg"></i>Subtema</a>
+                  </li>
+                  <li  >
+                     <a  href="{{ path('contenido') }}"><i class="fa fa-square-o fa-lg"></i>Contenido</a>
+                  </li>
+                  <li  >
+                     <a  href="{{ path('imagenes') }}"><i class="fa fa-square-o fa-lg"></i>Imagenes</a>
+                  </li>
+                  <li  >
+                     <a  href="{{ path('idioma') }}"><i class="fa fa-square-o fa-lg"></i>Idioma</a>
+                  </li>
+               </ul>
+            </div>
+         </nav>
+         <!-- /. NAV SIDE  -->
+         <div id="page-wrapper" >
+            <div id="page-inner">
+               <div class="row">
+                  <ul class="breadcrumb breadcrumb-page">
+                     <div class="breadcrumb-label text-light-gray">You are here: </div>
+                     <li><a href="#">Home</a></li>
+                     <li class="active"><a href="#">Dashboard</a></li>
+                  </ul>
+               </div>
+               <div class="row">
+                  <div class="page-header">
+                     <div class="col-md-12">
+                        <h1><i class="fa fa-dashboard page-header-icon"></i> Admin Dashboard</h1>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- /. ROW  -->
+
+               <div class="row">
+                     <div class="panel panel-default">
+                        <div class="panel-heading">
+
+                           {% block contenido -%}
+                              #Tema,Subtema,Contenido
+                           {% endblock %}
+
+                        </div>
+                     </div>
+               </div>
+
+               <!-- /. ROW  -->     
+
+            </div>
+            <!-- /. PAGE INNER  -->
+         </div>
+         <!-- /. PAGE WRAPPER  -->
+      </div>
+      <!-- /. WRAPPER  -->
+      <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+      
+      <!-- JQUERY SCRIPTS -->
+      <script src="{{ asset('bundles/dscorpadmin/js/jquery-1.10.2.js')}}"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+      <script src="{{ asset('bundles/dscorpadmin/js/bootstrap.min.js')}}"></script>
+      <!-- METISMENU SCRIPTS -->
+      <script src="{{ asset('bundles/dscorpadmin/js/jquery.metisMenu.js')}}"></script>
+      <!-- MORRIS CHART SCRIPTS -->
+      <script src="{{ asset('bundles/dscorpadmin/js/morris/raphael-2.1.0.min.js')}}"></script>
+      <script src="{{ asset('bundles/dscorpadmin/js/morris/morris.js')}}"></script>
+      <!-- CUSTOM SCRIPTS -->
+      <script src="{{ asset('bundles/dscorpadmin/js/custom.js')}}"></script>
+      
+        
+        
+   </body>
+</html>

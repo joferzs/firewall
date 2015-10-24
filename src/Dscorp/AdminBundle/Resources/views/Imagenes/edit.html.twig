@@ -1,26 +1,17 @@
 {% extends '::base.html.twig' %} 
 {% block title %}Admin Imagenes{% endblock %}
 {% block contenido %}
-<h1>Imagenes edit</h1>
+<h1>Editar Imagen</h1>
 
 <form action="{{ path('imagenes_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
     {{ form_widget(edit_form) }}
-    <p>
-        <button type="submit">Edit</button>
-    </p>
+    <br>
+        <a href="{{ path('imagenes') }}" class="btn btn-outline btn-back" >Regresar</a>
+        <button class="btn btn-outline btn-edit editar-edit" type="submit">Editar</button>
+</form>
+<form action="{{ path('imagenes_delete', { 'id': entity.id }) }}" method="post">
+    {{ form_widget(delete_form) }}
+    <button type="submit" class="btn btn-outline btn-danger eliminar-edit">Eliminar</button>
 </form>
 
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('imagenes') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <form action="{{ path('imagenes_delete', { 'id': entity.id }) }}" method="post">
-            {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
-        </form>
-    </li>
-</ul>
 {% endblock %}

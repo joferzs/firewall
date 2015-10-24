@@ -1,0 +1,123 @@
+{% extends '::basevista.html.twig' %} 
+{% block menu %}
+
+<aside id="nav-container" class="nav-container ng-scope nav-fixed nav-vertical bg-dark" data-ng-class="{ 'nav-fixed': admin.fixedSidebar,
+                                    'nav-horizontal': admin.menu === 'horizontal',
+                                    'nav-vertical': admin.menu === 'vertical',
+                                    'bg-white': ['31','32','33','34','35','36'].indexOf(admin.skin) >= 0,
+                                    'bg-dark': ['31','32','33','34','35','36'].indexOf(admin.skin) < 0
+                   }">
+<div class="nav-wrapper ng-scope">
+    <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;"><ul id="nav" class="nav" data-slim-scroll="" data-collapse-nav="" data-highlight-active="" style="overflow: hidden; width: auto; height: 100%;">
+        <li class="nav-title">
+            <span data-translate="NAVIGATION" class="ng-scope">Navigation</span>
+        </li>
+        <li class="active"><a href="#/dashboard"> <i class="ti-home"></i><span data-translate="DASHBOARD" class="ng-scope">Dashboard</span> </a></li>
+        <li>
+            <a href="#/ui"><i class="ti-bag"></i><span data-translate="UI_KIT" class="ng-scope">UI Kit</span></a>
+            <ul>
+                <li><a href="#/ui/typography"><i class="ti-angle-right"></i><span data-translate="TYPOGRAPHY" class="ng-scope">Typography</span></a></li>
+                <li><a href="#/ui/icons"><i class="ti-angle-right"></i><span data-translate="ICONS" class="ng-scope">Icons</span> <span class="badge badge-info">4</span></a></li>
+                <li><a href="#/ui/buttons"><i class="ti-angle-right"></i><span data-translate="BUTTONS" class="ng-scope">Buttons</span></a></li>
+                <li><a href="#/ui/components"><i class="ti-angle-right"></i><span data-translate="COMPONENTS" class="ng-scope">Components</span> <span class="badge badge-danger">18</span></a></li>
+                <li><a href="#/ui/boxes"><i class="ti-angle-right"></i><span data-translate="BOXES" class="ng-scope">Boxes</span></a></li>
+                <li><a href="#/ui/widgets"><i class="ti-angle-right"></i><span data-translate="WIDGETS" class="ng-scope">Widgets</span> <span class="badge badge-success">13</span></a></li>
+                <li><a href="#/ui/timeline"><i class="ti-angle-right"></i><span data-translate="TIMELINE" class="ng-scope">Timeline</span></a></li>
+                <li><a href="#/ui/nested-lists"><i class="ti-angle-right"></i><span data-translate="NESTED_LISTS" class="ng-scope">Nested Lists</span></a></li>
+                <li><a href="#/ui/pricing-tables"><i class="ti-angle-right"></i><span data-translate="PRICING_TABLES" class="ng-scope">Pricing Tables</span></a></li>
+                <li><a href="#/ui/maps"><i class="ti-angle-right"></i><span data-translate="MAPS" class="ng-scope">Maps</span></a></li>
+                <li><a href="#/ui/grids"><i class="ti-angle-right"></i><span data-translate="GRIDS" class="ng-scope">Grids</span></a></li>
+            </ul>
+        <i class="ti-angle-down icon-has-ul-h"></i><i class="ti-angle-right icon-has-ul"></i></li>
+
+
+        {% if entitiesTema|length > 0 %}
+        {% for entityTema in entitiesTema %}
+        <li>            
+            <a href="#/ui"><i class="ti-bag"></i><span data-translate="{{entityTema.nombretema}}" class="ng-scope">UI Kit</span></a>
+            {% if entitiesSubtema|length > 0 %}
+            {% for entitySubtema in entitiesSubtema if entitySubtema.tema ==  entityTema.nombretema %}
+            <ul>
+                <li><a ng-click="ruta='{{entitySubtema.nombresub}}'" ng-init="ruta=0"><i class="ti-angle-right"></i><span data-translate="{{entitySubtema.nombresub}}" class="ng-scope">Icons</span> <span class="badge badge-info">4</span></a></li>
+                {% set var = '{{ruta}}' %}
+                {% verbatim %}
+                <span>
+                    ruta: {{ruta}} <br>
+                </span>
+                {% endverbatim %}
+                var: {{var}}
+            </ul>
+            {% endfor %}
+            {% endif %}
+            <i class="ti-angle-down icon-has-ul-h"></i><i class="ti-angle-right icon-has-ul"></i>
+        </li>
+        {% endfor %}
+        {% endif %}
+
+
+        <li>
+            <a href="#/pages"><i class="ti-files"></i><span data-translate="PAGES" class="ng-scope">Pages</span></a>
+            <ul>
+                <li><a href="http://iarouse.com/dist-magic/landing/" target="_blank"><i class="ti-angle-right"></i><span data-translate="LANDING" class="ng-scope">Landing</span></a></li>
+                <li><a href="#/pages/signin"><i class="ti-angle-right"></i><span data-translate="SIGN_IN" class="ng-scope">Sign In</span></a></li>
+                <li><a href="#/pages/signup"><i class="ti-angle-right"></i><span data-translate="SIGN_UP" class="ng-scope">Sign Up</span></a></li>
+                <li><a href="#/pages/forgot-password"><i class="ti-angle-right"></i><span data-translate="FORGOT_PASSWORD" class="ng-scope">Forgot Password</span></a></li>
+                <li><a href="#/pages/lock-screen"><i class="ti-angle-right"></i><span data-translate="LOCK_SCREEN" class="ng-scope">Lock Screen</span></a></li>
+                <li><a href="#/pages/profile"><i class="ti-angle-right"></i><span data-translate="USER_PROFILE" class="ng-scope">User Profile</span></a></li>
+                <li><a href="#/pages/invoice"><i class="ti-angle-right"></i><span data-translate="INVOICE" class="ng-scope">Invoice</span></a></li>
+                <li><a href="#/pages/404"><i class="ti-angle-right"></i>404 <span data-translate="ERROR" class="ng-scope">Error</span></a></li>
+                <li><a href="#/pages/500"><i class="ti-angle-right"></i>500 <span data-translate="ERROR" class="ng-scope">Error</span></a></li>
+                <li><a href="#/pages/blank"><i class="ti-angle-right"></i><span data-translate="BLANK_PAGE" class="ng-scope">Blank Page</span></a></li>
+            </ul>
+        <i class="ti-angle-down icon-has-ul-h"></i><i class="ti-angle-right icon-has-ul"></i></li>
+        <li>
+            <a href="#/table"><i class="ti-view-list"></i><span data-translate="TABLES" class="ng-scope">Tables</span></a>
+            <ul>
+                <li><a href="#/tables/static"><i class="ti-angle-right"></i><span data-translate="STATIC_TABLES" class="ng-scope">Static Tables</span></a></li>
+                <li><a href="#/tables/responsive"><i class="ti-angle-right"></i><span data-translate="RESPONSIVE_TABLES" class="ng-scope">Responsive Tables</span> <span class="badge badge-info">2</span></a></li>
+                <li><a href="#/tables/dynamic"><i class="ti-angle-right"></i><span data-translate="DYNAMIC_TABLES" class="ng-scope">Dynamic Tables</span></a></li>
+            </ul>
+        <i class="ti-angle-down icon-has-ul-h"></i><i class="ti-angle-right icon-has-ul"></i></li>
+        <li>
+            <a href="#/form"><i class="ti-pencil"></i><span data-translate="FORMS" class="ng-scope">Forms</span></a>
+            <ul>
+                <li><a href="#/forms/layouts"><i class="ti-angle-right"></i><span data-translate="FORM_LAYOUTS" class="ng-scope">Form Layouts</span></a></li>
+                <li><a href="#/forms/elements"><i class="ti-angle-right"></i><span data-translate="FORM_ELEMENTS" class="ng-scope">Form Elements</span> <span class="badge badge-info">14</span></a></li>
+                <li><a href="#/forms/validation"><i class="ti-angle-right"></i><span data-translate="FORM_VALIDATION" class="ng-scope">Form Validation</span></a></li>
+                <li><a href="#/forms/wizard"><i class="ti-angle-right"></i><span data-translate="FORM_WIZARD" class="ng-scope">Form Wizard</span></a></li>
+            </ul>
+        <i class="ti-angle-down icon-has-ul-h"></i><i class="ti-angle-right icon-has-ul"></i></li>
+       <li>
+            <a href="#/charts"><i class="ti-bar-chart"></i><span data-translate="CHARTS" class="ng-scope">Charts</span></a>
+            <ul>
+                <li><a href="#/charts/flot"><i class="ti-angle-right"></i>Flot <span data-translate="CHARTS" class="ng-scope">Charts</span></a></li>
+                <li><a href="#/charts/charts"><i class="ti-angle-right"></i>Other <span data-translate="CHARTS" class="ng-scope">Charts</span></a></li>
+            </ul>
+        <i class="ti-angle-down icon-has-ul-h"></i><i class="ti-angle-right icon-has-ul"></i></li>
+        <li class="divider nav-divider"></li>
+        <li class="nav-title">
+            <span data-translate="APPLICATION" class="ng-scope">Application</span>
+        </li>
+        <li class="nav-task">
+            <a href="#/app/tasks">
+                <i class="ti-check-box"></i><span data-translate="TASKS" class="ng-scope">Tasks</span>
+                <span class="badge badge-danger main-badge ng-binding ng-hide" data-ng-show="taskRemainingCount > 0"></span>
+            </a>
+        </li>
+        <li class="nav-task">
+            <a href="#/app/calendar">
+                <i class="ti-calendar"></i><span data-translate="CALENDAR" class="ng-scope">Calendar</span>
+            </a>
+        </li>
+        <li>
+            <a href="#/mail"><i class="ti-email"></i><span data-translate="MAIL" class="ng-scope">Mail</span></a>
+            <ul>
+                <li><a href="#/mail/inbox"><i class="ti-angle-right"></i><span data-translate="INBOX" class="ng-scope">Inbox</span></a></li>
+                <li><a href="#/mail/compose"><i class="ti-angle-right"></i><span data-translate="COMPOSE" class="ng-scope">Compose</span></a></li>
+                <li><a href="#/mail/single"><i class="ti-angle-right"></i><span data-translate="SINGLE_MAIL" class="ng-scope">Single Mail</span></a></li>
+            </ul>
+        <i class="ti-angle-down icon-has-ul-h"></i><i class="ti-angle-right icon-has-ul"></i></li>
+    </ul><div class="slimScrollBar" style="width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 698px; background: rgb(0, 0, 0);"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; opacity: 0.2; z-index: 90; right: 1px; background: rgb(51, 51, 51);"></div></div>
+</div>
+</aside>
+{% endblock %}

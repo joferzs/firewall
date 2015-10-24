@@ -1,24 +1,14 @@
 {% extends '::base.html.twig' %} 
 {% block title %}Admin Tema{% endblock %}
 {% block contenido %}
-<h1>Tema</h1>
+<h1>Agregar nuevo Tema</h1>
 
 <form action="{{ path('tema_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
-    <table>
-    	<tr>
-    		<td><button type="reset">Reset</button></td>
-		    <td><button type="submit">Crear</button></td>
-		</tr>
-    </table>
+    <br>
+        <a href="{{ path('tema') }}" class="btn btn-outline btn-back" >Regresar</a>
+        <button class="btn btn-outline btn-warning" type="reset">Reset</button>
+	    <button class="btn btn-outline btn-primary" type="submit">Crear</button>
 </form>
-
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('tema') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
 
 {% endblock %}

@@ -1,0 +1,24 @@
+Dscorp\AdminBundle\Entity\Tema:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        nombreTema:
+            type: string
+            length: 255
+    oneToMany:
+        subtema:
+            targetEntity: Subtema
+            mappedBy: tema
+    manyToOne:
+        idioma:
+            targetEntity: Dscorp\AdminBundle\Entity\Idioma
+            inversedBy: tema
+            joinColumn:
+               name: id_idioma
+               referencedColumnName: id
+    lifecycleCallbacks: {  }

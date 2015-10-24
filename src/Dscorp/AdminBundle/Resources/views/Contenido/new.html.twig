@@ -1,21 +1,14 @@
 {% extends '::base.html.twig' %} 
 {% block title %}Admin Cotenido{% endblock %}
 {% block contenido %}
-<h1>Contenido creation</h1>
+<h1>Agregar Contenido</h1>
 
 <form action="{{ path('contenido_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
-    <p>
-        <button type="submit">Create</button>
-    </p>
+    <br>
+        <a href="{{ path('contenido') }}" class="btn btn-outline btn-back" >Regresar</a>
+        <button class="btn btn-outline btn-warning" type="reset">Reset</button>
+	    <button class="btn btn-outline btn-primary" type="submit">Crear</button>
 </form>
-
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('contenido') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
 
 {% endblock %}

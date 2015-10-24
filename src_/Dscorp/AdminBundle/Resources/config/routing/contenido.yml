@@ -1,0 +1,30 @@
+contenido:
+    pattern:  /
+    defaults: { _controller: "DscorpAdminBundle:Contenido:index" }
+
+contenido_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "DscorpAdminBundle:Contenido:show" }
+
+contenido_new:
+    pattern:  /new
+    defaults: { _controller: "DscorpAdminBundle:Contenido:new" }
+
+contenido_create:
+    pattern:  /create
+    defaults: { _controller: "DscorpAdminBundle:Contenido:create" }
+    requirements: { _method: post }
+
+contenido_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "DscorpAdminBundle:Contenido:edit" }
+
+contenido_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "DscorpAdminBundle:Contenido:update" }
+    requirements: { _method: post }
+
+contenido_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "DscorpAdminBundle:Contenido:delete" }
+    requirements: { _method: post }
