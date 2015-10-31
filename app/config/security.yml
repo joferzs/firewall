@@ -4,18 +4,30 @@ jms_security_extra:
 
 security:
     encoders:
-        Symfony\Component\Security\Core\User\User: plaintext
+        Dscorp\UsuarioBundle\Entity\Usuario:
+            algorithm: sha512
+            encode-as-base64: true
+            iterations: 10
+        #Symfony\Component\Security\Core\User\User: 
+            #algorithm:   sha1
+            #iterations: 1
+            #encode_as_base64: false
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
+        chain_provider:
+            chain:
+                providers: [in_memory, user_db]
         in_memory:
             memory:
                 users:
-                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+                    fernando:  { password: zeppelin8, roles: [ 'ROLE_USER' ] }
+                    alex: { password: 65dbeb4660de9dd4de01244ef71aba213e81ecd3, roles: [ 'ROLE_ADMIN' ] }
+        user_db:
+            entity: { class: DscorpUsuarioBundle:Usuario, property: nombre }
 
     firewalls:
         dev:
@@ -26,19 +38,30 @@ security:
             pattern:  ^/demo/secured/login$
             security: false
 
-        secured_area:
-            pattern:    ^/demo/secured/
+    firewalls:
+        default:
+            pattern:    ^/
+            provider: user_db
             form_login:
-                check_path: /demo/secured/login_check
-                login_path: /demo/secured/login
+                check_path: /login_check
+                login_path: /login
+                remember_me: true
             logout:
-                path:   /demo/secured/logout
-                target: /demo/
-            #anonymous: ~
+                path:   /logout
+                target: /
+            remember_me:
+                key: holysoymuyseguro
+                lifetime: 1800
+                path: /.*
+                domain: ~
+            security: true
+            anonymous: ~
             #http_basic:
             #    realm: "Secured Demo Area"
 
     access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin, roles: ROLE_ADMIN }
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
         #
         # You must uncomment the two following rules to restrict access to paths

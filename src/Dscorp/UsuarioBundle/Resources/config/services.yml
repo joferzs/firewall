@@ -1,0 +1,7 @@
+parameters:
+#    dscorp_usuario.example.class: Dscorp\UsuarioBundle\Example
+
+services:
+#    dscorp_usuario.example:
+#        class: %dscorp_usuario.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

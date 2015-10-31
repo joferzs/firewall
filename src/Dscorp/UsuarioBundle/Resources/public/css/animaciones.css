@@ -1,0 +1,43 @@
+.deslizar {
+-moz-animation-duration: 3s;
+-webkit-animation-duration: 3s;
+-moz-animation-name: slidein;
+-webkit-animation-name: slidein;
+}
+.deslizar.ng-enter {
+opacity: 0;
+}
+.deslizar.ng-enter-active {
+opacity: 1;
+}
+.deslizar.ng-leave {
+opacity: 1;
+-webkit-transition: ease-in-out 3s;
+-moz-transition: ease-in-out 3s;
+-ms-transition: ease-in-out 3s;
+-o-transition: ease-in-out 3s;
+transition: ease-in-out 3s;	
+}
+.deslizar.ng-leave-active {
+opacity: 0;
+}
+@-moz-keyframes slidein {
+from {
+margin-left:100%;
+width:300%
+}
+to {
+margin-left:0%;
+width:100%;
+}
+}
+@-webkit-keyframes slidein {
+from {
+margin-left:100%;
+width:300%
+}
+to {
+margin-left:0%;
+width:100%;
+}
+}

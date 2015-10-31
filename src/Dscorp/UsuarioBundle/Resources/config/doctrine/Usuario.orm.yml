@@ -1,0 +1,33 @@
+Dscorp\UsuarioBundle\Entity\Usuario:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: string
+            length: 255
+        email:
+            type: string
+            length: 255
+        salt:
+            type: string
+            length: 255
+        password:
+            type: string
+            length: 255
+        status:
+            type: boolean
+    manyToOne:
+        user_roles:
+            targetEntity: Dscorp\UsuarioBundle\Entity\Role
+            joinTable:
+                name: role
+                joinColumns:
+                    id:
+                        referencedColumnName: id
+    lifecycleCallbacks: {  }

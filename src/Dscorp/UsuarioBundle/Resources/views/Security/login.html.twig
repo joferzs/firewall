@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fucking Login</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+        <script src="https://code.angularjs.org/1.3.15/angular-animate.min.js"></script>
+        <link href="{{ asset('bundles/dscorpusuario/css/animaciones.css') }}" rel="stylesheet">
+        <link href="{{ asset('bundles/dscorpusuario/css/styleslogin.css') }}" rel="stylesheet" />
+        <script src="{{ asset('bundles/dscorpusuario/angular/app.js')}}"></script>
+        <style type="text/css">
+            .error {
+                border-color: green !important;
+                border-bottom: 4px solid green !important; /*#2C0000*/
+            }
+            .warning {
+                border-color: #470000 !important;
+            }
+            .regist{
+                margin: -24px 0px 2px 15px;
+                border-bottom: 1px solid #221C1C !important;
+                border-top: 1px solid #221C1C !important;
+                width: 90% !important;
+            }
+            h1{
+                font-size: 3em;
+                font-weight: 300;
+                color: rgba(255, 255, 255, 0.698);
+                display: inline-block;
+                padding: 5px 5px 5px 125px;
+                text-shadow: 1px 1px 3px #23203B;
+            }
+            .bad{
+                color: #B32929;
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body ng-app='app' ng-controller="appCtrl">
+        <div class="login">
+            <div class="heading enterhead">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="animacion" ng-if="ImgVisible">
+                                <h1>Registrar</h1><br><br>
+                                <form action="{{ path('usuario_create') }}" method="post" {{ form_enctype(form) }} name='exampleForm'>
+                                    {{ form_widget(form) }}
+                                    <button type="submit" class="btn pull-right float" ng-disabled='!exampleForm.$valid'>Ok</button><br><br>
+                                </form><br><br><br>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="alingblock">
+                    {% if error %}
+                        <div>{{ error.message }}</div>
+                        <p class="bad">El usuario o contraseña son incorrectos</p>
+                    {% endif %}
+                    <h2>Fucking Sign in</h2>
+                    <form action="{{ path('login_check') }}" method="post" name='exampleForm'>                    
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <input type="text" class="form-control" placeholder='Nombre' name="_username" ng-model='formData._username' required ng-class='{ error: exampleForm._username.$invalid && !exampleForm.$pristine }'>
+                        </div>
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                            <input type="password" class="form-control" placeholder="Password" name='_password' ng-model='formData._password' required ng-class='{ error: exampleForm._password.$invalid && !exampleForm.$pristine }'>
+                        </div>
+                        <button type="submit" class="btn pull-right float" ng-disabled='!exampleForm.$valid'>Login</button>
+                        <a href="" ng-click="ImgVisible=!ImgVisible"><button class="btn pull-right float">Registar</button></a>
+                    </form>
+                </div>
+             </div>
+        </div>
+    </body>
+</html>

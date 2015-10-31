@@ -1,0 +1,12 @@
+dscorp_usuario_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: DscorpUsuarioBundle:Default:index }
+DscorpUsuarioBundle_usuario:
+    resource: "@DscorpUsuarioBundle/Resources/config/routing/usuario.yml"
+    prefix:   /usuario
+DscorpUsuarioBundle_role:
+    resource: "@DscorpUsuarioBundle/Resources/config/routing/role.yml"
+    prefix:   /role
+prueba:
+    pattern:  /prueba
+    defaults: { _controller: DscorpUsuarioBundle:Default:prueba }
