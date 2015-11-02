@@ -23,9 +23,11 @@ class UsuarioController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('DscorpUsuarioBundle:Usuario')->findAll();
+        $entitiesRole=$em->getRepository('DscorpUsuarioBundle:Role')->findAll();
 
         return $this->render('DscorpUsuarioBundle:Usuario:index.html.twig', array(
             'entities' => $entities,
+            'entitiesRole' => $entitiesRole
         ));
     }
 
@@ -78,19 +80,6 @@ class UsuarioController extends Controller
         if ($form->isValid()) {
             //establecemos la contraseña: --------------------------
             $this->setSecurePassword($entity);
-
-            $em = $this->getDoctrine()->getManager();
-            $def=$em->getRepository('DscorpUsuarioBundle:Usuario')->findAll();
-            
-
-            if (empty($def)) {
-                $roles=$em->getRepository('DscorpUsuarioBundle:Role')->find(1);
-                $entity->setUserRoles($roles);
-            }
-            elseif (!empty($def)) {
-                $roles=$em->getRepository('DscorpUsuarioBundle:Role')->find(2);
-                $entity->setUserRoles($roles);
-            }
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);

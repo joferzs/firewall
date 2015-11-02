@@ -6,16 +6,16 @@ admin:
     defaults: { _controller: DscorpAdminBundle:Default:admin }
 DscorpAdminBundle_tema:
         resource: "@DscorpAdminBundle/Resources/config/routing/tema.yml"
-        prefix:   /tema
+        prefix:   /admin/tema
 DscorpAdminBundle_subtema:
         resource: "@DscorpAdminBundle/Resources/config/routing/subtema.yml"
-        prefix:   /subtema
+        prefix:   /admin/subtema
 DscorpAdminBundle_contenido:
         resource: "@DscorpAdminBundle/Resources/config/routing/contenido.yml"
-        prefix:   /contenido
+        prefix:   /admin/contenido
 DscorpAdminBundle_imagenes:
         resource: "@DscorpAdminBundle/Resources/config/routing/imagenes.yml"
-        prefix:   /imagenes
+        prefix:   /admin/imagenes
 DscorpAdminBundle_idioma:
         resource: "@DscorpAdminBundle/Resources/config/routing/idioma.yml"
-        prefix:   /idioma
+        prefix:   /admin/idioma

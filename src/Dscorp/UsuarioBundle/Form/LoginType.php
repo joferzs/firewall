@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class UsuarioType extends AbstractType
+class LoginType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -32,15 +32,8 @@ class UsuarioType extends AbstractType
         ;
     }
 
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $resolver->setDefaults(array(
-            'data_class' => 'Dscorp\UsuarioBundle\Entity\Usuario'
-        ));
-    }
-
     public function getName()
     {
-        return 'dscorp_usuariobundle_usuariotype';
+        return 'formLogin';
     }
 }

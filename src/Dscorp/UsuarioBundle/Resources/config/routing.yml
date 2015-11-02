@@ -3,10 +3,10 @@ dscorp_usuario_homepage:
     defaults: { _controller: DscorpUsuarioBundle:Default:index }
 DscorpUsuarioBundle_usuario:
     resource: "@DscorpUsuarioBundle/Resources/config/routing/usuario.yml"
-    prefix:   /usuario
+    prefix:   /admin/usuario
 DscorpUsuarioBundle_role:
     resource: "@DscorpUsuarioBundle/Resources/config/routing/role.yml"
-    prefix:   /role
+    prefix:   /admin/role
 prueba:
     pattern:  /prueba
     defaults: { _controller: DscorpUsuarioBundle:Default:prueba }

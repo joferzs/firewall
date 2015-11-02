@@ -24,3 +24,8 @@ login:
     defaults:  { _controller: DscorpUsuarioBundle:Security:login }
 login_check:
     pattern:   /login_check
+
+usuario_create_login:
+    pattern:  /create_login
+    defaults: { _controller: DscorpUsuarioBundle:Security:create_login }
+    requirements: { _method: post }

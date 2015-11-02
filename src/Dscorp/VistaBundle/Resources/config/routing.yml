@@ -1,6 +1,6 @@
 vista_homepage:
     pattern:  /
-    defaults: { _controller: VistaBundle:Default:index }
+    defaults: { _controller: VistaBundle:Default:vista }
 vista:
     pattern:  /dscorp/es/
     defaults: { _controller: VistaBundle:Default:vista }

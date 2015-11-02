@@ -12,7 +12,7 @@ $button-background-color: #27AE60;
 }
 
 html {
-  background: url(/Proyecto/firewall/web/bundles/dscorpusuario/images/redbackground.jpg) no-repeat center center fixed;
+  background: url(/Proyecto/firewall/web/bundles/dscorpusuario/images/bluebackground.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -76,12 +76,16 @@ body, input, button {
   background: transparent;
   color: #c2b8b1;
 }
+::-webkit-input-placeholder { color: #25405B !important; } /
+:-moz-placeholder { color: #25405B !important; } 
+::-moz-placeholder { color: #25405B !important; } 
+:-ms-input-placeholder { color: #25405B !important; } 
 .login form input.form-control:focus {
   border: none;
 }
 .login form button {
   margin-top: 5px;
-  background: #350000;
+  background: #0C2560;
   border: none;
   font-size: 1.6em;
   font-weight: 300;
@@ -89,10 +93,10 @@ body, input, button {
   width: 100%;
   border-radius: 3px;
   color: white;
-  border-bottom: 4px solid #490000;
+  border-bottom: 4px solid #1D282C;
 }
 .login form button:hover {
-  background: #6D0000;
+  background: #00549E;
   -webkit-animation: hop 1s;
   animation: hop 1s;
   color: white;

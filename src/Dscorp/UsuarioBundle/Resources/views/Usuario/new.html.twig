@@ -1,16 +1,14 @@
-<h1>Usuario creation</h1>
+{% extends '::base.html.twig' %} 
+{% block title %}Admin Usuario{% endblock %}
+{% block contenido %}
+<h1>Agregar nuevo Usuario</h1>
 
-<form action="{{ path('usuario_create') }}" method="post" {{ form_enctype(form) }}>
+<form action="{{ path('usuario_create_login') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
-    <p>
-        <button type="submit">Create</button>
-    </p>
+    <br>
+        <a href="{{ path('usuario') }}" class="btn btn-outline btn-back" >Regresar</a>
+        <button class="btn btn-outline btn-warning" type="reset">Reset</button>
+	    <button class="btn btn-outline btn-primary" type="submit">Crearr</button>
 </form>
 
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('usuario') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+{% endblock %}
